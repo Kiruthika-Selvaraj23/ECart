@@ -1,0 +1,83 @@
+import React, { useContext, useState } from 'react'
+import { DContext } from '../../Store/MyContext'
+import LoginImage from "../../accets/LoginImage.png"
+import { useNavigate } from 'react-router'
+
+export default function Login() {
+    const [loginMail, setLoginMail] = useState("")
+    const [loginPassword, setLoginPassword] = useState("")
+    const [loginEmailErr, setLoginEmailErr] = useState("")
+    const [loginPwdErr, setLoginPwdErr] = useState("")
+
+    const navigate = useNavigate() 
+    const { setUserDetails, role } = useContext(DContext)
+
+    const submitLoginForm = async (event) => {
+        event.preventDefault()
+        const url = process.env.REACT_APP_URL
+        try {
+            let isValid = true
+            if (loginMail === "") {
+                setLoginEmailErr("*Enter Your Name")
+                isValid = false
+            } else {
+                setLoginEmailErr("")
+            }
+            if (loginPassword === "") {
+                setLoginPwdErr("*Enter Your Name")
+                isValid = false
+            } else {
+                setLoginPwdErr("")
+            }
+
+            if (isValid) {
+                const options = {
+                    method: "POST",
+                    credentials: "include",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({ userMailId: loginMail, pwd: loginPassword })
+                }
+                const fetchData = await fetch(`${url}/login`, options)
+                const data = await fetchData.json()
+                if (data.success) {
+                    setUserDetails(data.UserData)
+                    alert(data.message)
+                    setLoginMail("")
+                    setLoginPassword("")
+                    if (role === "user") {
+                        navigate("/userHomePage")
+                    }
+                } else {
+                    alert(data.message)
+                }
+            }
+        }
+        catch (err) {
+            console.log("Trouble in connecting the server", err)
+        }
+    }
+
+    return (
+        <div className='flex justify-center items-center'>
+            <div className='flex p-3 bg-white rounded-md min-w-[55%] my-7'>
+                <img className='h-[350px] w-[60%]' src={LoginImage} alt="regiter" />
+                <div className='w-[58%]'>
+                    <h1 className='text-[30px] text-blue-700 italic font-semibold'>Login</h1>
+                    <form onSubmit={(event) => submitLoginForm(event)} className='flex flex-col mb-7'>
+                        <label className='text-gray-600 text-[15px] font-semibold my-4' htmlFor='email'>Email Id:</label>
+                        <input onChange={(event) => setLoginMail(event.target.value)} value={loginMail} type="email" id='email' className='border-t-0 border-b-2 border-l-0 border-r-0' />
+                        <p className='text-red-900 font-semibold'>{loginEmailErr}</p>
+                        <label className='text-gray-600 text-[15px] font-semibold my-4' htmlFor='email'>Password:</label>
+                        <input onChange={(event) => setLoginPassword(event.target.value)} value={loginPassword} type="password" id='pass' className='border-t-0 border-b-2 border-l-0 border-r-0' />
+                        <p className='text-red-900 font-semibold'>{loginPwdErr}</p>
+                        <div>
+                            <button type='submit' className='bg-gradient-to-t from-blue-950 to-blue-500 w-[100px] font-semibold p-2 rounded-[5px] text-white mt-5'>Login</button>
+                        </div>
+                    </form>
+               </div>
+            </div>
+        </div>
+    )
+}
