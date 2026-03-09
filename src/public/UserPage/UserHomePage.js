@@ -2,11 +2,12 @@ import React from 'react'
 import "../../App.css"
 import UserHeader from './UserHeader'
 import Collections from "./Collections.js"
-import CartImage from "../../accets/ShoppingCart.png"
-import FreeDelivery from "../../accets/Freedelivery.png"
-import Payment from "../../accets/SecurePayment.png"
-import EasyReturn from "../../accets/EasyReturn.png"
-import CustomerSupport from "../../accets/CallSupport.png"
+import CartImage from "../../assets/ShoppingCart.png"
+import FreeDelivery from "../../assets/Freedelivery.png"
+import Payment from "../../assets/SecurePayment.png"
+import EasyReturn from "../../assets/EasyReturn.png"
+import CustomerSupport from "../../assets/CallSupport.png"
+import UserFooter from './UserFooter.js'
 
 export default function HomePage() {
   return (
@@ -55,6 +56,7 @@ export default function HomePage() {
 
         <Collections />
       </div>
+      <UserFooter/>
     </>
   )
 }

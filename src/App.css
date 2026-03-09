@@ -37,11 +37,6 @@
   }
 }
 
-.homePage-bg-container{
-  background-image: url("../src/accets/HomePageBg.jpg");
-  height: 100vh;
-  background-size: cover
-}
 
 @tailwind base;
 @tailwind components;

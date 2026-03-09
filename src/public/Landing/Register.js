@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react'
-import RegisterImage from "../../accets/RegisterImage.jpg"
+import RegisterImage from "../../assets/RegisterImage.jpg"
 import { DContext } from '../../Store/MyContext'
 
 export default function Register() {

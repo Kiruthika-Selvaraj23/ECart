@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import ECartLogo from "../accets/ECartLogo.png"
+import ECartLogo from "../assets/ECartLogo.png"
 import { DContext } from '../Store/MyContext'
 
 export default function Header() {

@@ -1,7 +1,7 @@
 import React from 'react'
-import WideProducts from "../../accets/WideProducts.png"
-import AffordablePrices from "../../accets/AffordablePrices.png"
-import FastDelivery from "../../accets/FastDelivery.png"
+import WideProducts from "../../assets/WideProducts.png"
+import AffordablePrices from "../../assets/AffordablePrices.png"
+import FastDelivery from "../../assets/FastDelivery.png"
 
 
 export default function WhyChooseUs() {

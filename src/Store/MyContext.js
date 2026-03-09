@@ -1,6 +1,6 @@
 import { createContext, useState } from "react";
-import Seller from "../accets/Seller.jpg"
-import User from "../accets/User.jpg"
+import Seller from "../assets/Seller.jpg"
+import User from "../assets/User.jpg"
 
 const RegisterCardDetails = [{
     id: "seller",
@@ -25,7 +25,6 @@ export default function MyContext(props) {
     const [role, setRole] = useState("user")
 
     const [userDetails, setUserDetails] = useState({})
-
 
     const data = {
         showRegiserCard, setRegisterCard, showRegisterFrom, setRegisterForm, registrationCardDatas, setRegistrationCardDatas, showCompanyInput, setCompanyInput,
