@@ -10,13 +10,19 @@ import Login from './Login'
 
 export default function HomePage() {
     const { registrationCardDatas, showRegiserCard, setRegisterCard, showRegisterFrom, setRegisterForm, setCompanyInput, 
-        showLoginForm, setRole } = useContext(DContext)
+        showLoginForm, setLoginForm, setRole } = useContext(DContext)
 
     const clickRegistartion = (id) => {
         setRegisterCard(false)
         setRegisterForm(true)
         setCompanyInput(id)
         setRole(id)
+    }
+
+    const clickStartShopping = () => {
+        setRegisterCard(false)
+        setRegisterForm(false)
+        setLoginForm(true)
     }
 
     const renderRegistrationCard = () => (
@@ -53,7 +59,7 @@ export default function HomePage() {
                         <li className='m-5'>Trusted Shopping Experience</li>
                     </ul>
                     <div className='flex justify-center items-center mt-5'>
-                        <button className='bg-blue-950 text-white rounded-[3px] p-2 font-semibold'>Start Shopping</button>
+                        <button onClick={() => clickStartShopping()} className='bg-blue-950 text-white rounded-[3px] p-2 font-semibold'>Start Shopping</button>
                     </div>
                 </div>
 
