@@ -1,13 +1,18 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect } from 'react'
 import FreeDeliveryIcon from "../../assets/FreeDeliveryIcon.png"
 import RatingStar from "../../assets/RatingStar.png"
+import { DContext } from '../../Store/MyContext'
+import { useNavigate } from 'react-router'
 
 export default function ProductPage() {
-    const [productDatas, setProductDatas] = useState([])
+    const { productDatas, setProductDatas, cartProducts, setCartProducts } = useContext(DContext)
+    const navigate = useNavigate()
+    
+    const url = process.env.REACT_APP_URL
 
     useEffect(() => {
-       getProductsData()
-    })
+        getProductsData()
+    }, [])
     
     const getProductsData = async () => {
         const url = process.env.REACT_APP_URL
@@ -25,6 +30,27 @@ export default function ProductPage() {
         }
     }
 
+    const clickAddtoCartBtn = (cartItem) => {
+        const findItem = cartProducts.find(item => item.productId === cartItem.productId)
+        if (findItem) {
+            setCartProducts(prev => {
+                const updateItem = prev.map(eachItem => {
+                    if (eachItem.productId === findItem.productId) {
+                        return eachItem = {...eachItem, quantity: eachItem.quantity+1}
+                    } 
+                    else {
+                        return eachItem = {...eachItem}
+                    }
+                })
+                return updateItem
+            })
+        }
+        else {
+            const addProduct = { ...cartItem, quantity: 1 }
+            setCartProducts(prev => [...prev, addProduct])
+        }
+    }
+    
     const ratings = [1,2,3,4]
 
   return (
@@ -35,8 +61,8 @@ export default function ProductPage() {
           <ul className='flex justify-between flex-wrap'>
               {
                   productDatas.map(eachItem => (
-                      <li className='min-w-[30%] bg-slate-50 shadow-2xl shadow-gray-700 rounded-md p-3 m-2'>
-                          <img className='h-[200px] w-full' src="" alt={eachItem.name} />
+                      <li onClick={() => navigate(`/productDetail/${eachItem.productId}`)} key={eachItem.productId} className='min-w-[30%] bg-slate-50 shadow-2xl shadow-gray-700 rounded-md p-3 m-2'>
+                          <img className='h-[200px] w-full' src={`${url}/${eachItem.image.filePath}`} alt={eachItem.name} />
                           <h2 className='text-gray-500 font-semibold text-[15px]'>{eachItem.brandName}</h2>
                           <p className='font-bold'>{eachItem.name}</p>
                           <div className='flex'>
@@ -54,10 +80,9 @@ export default function ProductPage() {
                                   <p className='font-semibold text-gray-500 ml-2'>Free Delivery</p>
                               </div>
                               <div className=''>
-                                  <button className='w-[150px] bg-gradient-to-t from-cyan-800 to-sky-500 focus:from-indigo-800 focus:to-violet-900 font-semibold p-2 rounded-[5px] text-white'>Add to Cart</button>
+                                  <button onClick={() => clickAddtoCartBtn(eachItem)} className='w-[150px] bg-gradient-to-t from-cyan-800 to-sky-500 focus:from-indigo-800 focus:to-violet-900 font-semibold p-2 rounded-[5px] text-white'>Add to Cart</button>
                               </div>
                           </div>
-                          
                       </li>
                   ))
               }

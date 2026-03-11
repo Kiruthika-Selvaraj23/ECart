@@ -1,0 +1,94 @@
+import React, { useContext } from 'react'
+import UserHeader from './UserHeader'
+import UserFooter from './UserFooter'
+import CartPageBanner from "../../assets/CartPageBgImage.jpg"
+import EmptyCart from "../../assets/EmptyCart.png";
+import FreeDeliveryIcon from "../../assets/FreeDeliveryIcon.png"
+import RatingStar from "../../assets/RatingStar.png"
+import { DContext } from '../../Store/MyContext'
+import { useNavigate } from 'react-router';
+
+export default function CartPage() {
+    const navigate = useNavigate()
+    const { cartProducts, setCartProducts } = useContext(DContext)
+    const url = process.env.REACT_APP_URL
+
+    const removeCartItem = (id) => {
+        const filterCartProducts = cartProducts.filter(eachItem => eachItem.productId !== id)
+        console.log(filterCartProducts)
+        setCartProducts(filterCartProducts)
+    }
+    
+    const ratings = [1,2,3,4]
+  return (
+      <>
+          <UserHeader />
+          <div className='bg-gradient-to-tr from-blue-100 to-white min-h-[100vh]'>
+              
+              {
+                  cartProducts.length === 0 ? (
+                      <div className='flex flex-col justify-center items-center pt-10'>
+                          <h1 className='text-center text-[30px] font-semibold italic text-blue-900'>Your Cart is Empty!!</h1>
+                          <div className='mt-4'>
+                              <button onClick={() => navigate("/userShopPage")} className='bg-gradient-to-t from-blue-950 to-sky-400 p-2 text-white font-semibold rounded-[5px]'>Continue Shopping</button>
+                          </div>
+                          <img className='h-[500px]' src={EmptyCart} alt="empty cart" />
+                      </div>) : (
+                          <div>
+                            <div className='relative h-[400px] w-full'>
+                                <img className='h-full w-full object-cover' src={CartPageBanner} alt="Banner" />
+                                <div className='absolute inset-0 mx-20 flex flex-col justify-center mb-32'>
+                                    <h1 className='text-white font-semibold text-[40px] italic'>Shopping Cart</h1>
+                                    <p className='text-gray-600 font-semibold text-[23px] mt-1'>Rewiew Your Selection and Proceed to Checkout</p>
+                                    <div className='mt-4'>
+                                        <button onClick={() => navigate("/userShopPage")} className='bg-slate-50 p-2 text-gray-700 font-semibold rounded-[5px]'>Continue Shopping</button>
+                                    </div>
+                                </div>
+                              </div>
+                              
+                              <div className='mx-20 p-3'>
+                                  <h1 className='text-[30px] italic text-gray-700 font-semibold'>My Cart</h1>
+                                  <ul className='flex justify-between flex-wrap my-8'>
+                                      {
+                                          cartProducts.map(eachItem => (
+                                              <li className='relative min-w-[30%] bg-slate-50 shadow-2xl shadow-gray-700 rounded-md p-3 m-2'>
+                                                  <div className='absolute -top-4 left-[370px] bg-white rounded-full'>
+                                                      <svg onClick={() => removeCartItem(eachItem.productId)} xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="gray"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" /></svg>
+                                                  </div>
+                                                  <img className='h-[200px] w-full mt-2' src={`${url}/${eachItem.image.filePath}`} alt={eachItem.name} />
+                                                  <h2 className='text-gray-500 font-semibold text-[15px]'>{eachItem.brandName}</h2>
+                                                  <p className='font-bold'>{eachItem.name}</p>
+                                                  <div className='flex'>
+                                                      <p className='font-semibold text-gray-600'>Price: <span className='line-through'>{eachItem.price}</span></p>
+                                                      <p className='ml-3 text-blue-800 font-semibold'>{eachItem.originalPrice}</p>
+                                                      <p className='ml-3 text-green-900 font-semibold'>{eachItem.discount}% discount</p>
+                                                  </div>
+                                                  <div className='mt-2 flex'>
+                                                      <p className='font-semibold text-gray-600 mr-3'>Ratings: </p>
+                                                      {ratings.map(eachItem => (<img className='h-[20px]' src={RatingStar} alt="star" />))}
+                                                  </div>
+                                                  <p className='font-semibold text-gray-600 mr-3'>Quantity : {eachItem.quantity}</p>
+                                                  <div className='flex justify-between mt-5'>
+                                                      <div className='flex'>
+                                                          <img className='h-[20px]' src={FreeDeliveryIcon} alt="free delivery" />
+                                                          <p className='font-semibold text-gray-500 ml-2'>Free Delivery</p>
+                                                      </div>
+                                                      <div>
+                                                          <button className='w-[150px] bg-gradient-to-t from-cyan-800 to-sky-500 focus:from-indigo-800 focus:to-violet-900 font-semibold p-2 rounded-[5px] text-white'>Buy Now</button>
+                                                      </div>
+                                                  </div>
+                                              </li>
+                                          ))
+                                      }
+                                  </ul>
+
+                                  
+                             </div>
+                          </div>)
+              }
+
+          </div>
+          <UserFooter/>
+      </>
+  )
+}

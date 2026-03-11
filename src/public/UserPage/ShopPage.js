@@ -9,7 +9,7 @@ export default function ShopPage() {
   return (
       <>
         <UserHeader />
-          <div className='bg-blue-100 min-h-[100vh] p-3'>
+      <div className='bg-gradient-to-tr from-blue-100 to-white min-h-[100vh] p-5'>
               <div className='flex justify-between mx-4 mt-5'>
                   <div className="h-[400px] min-w-[55%] bg-cover bg-center flex flex-col justify-center items-center" style={{ backgroundImage: `url(${ShopImage})` }}>
                       <h2 className='text-blue-800 italic font-semibold text-[25px]'>Shop All the Products</h2>

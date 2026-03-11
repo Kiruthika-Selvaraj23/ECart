@@ -96,22 +96,22 @@ export default function Register() {
                 <div className='w-[58%]'>
                     <h1 className='text-[30px] text-blue-700 italic font-semibold'>Register</h1>
                     <form onSubmit={(event) => submitRegister(event)} className='flex flex-col mb-7'>
-                        <label className='text-gray-600 text-[15px] font-semibold my-4' htmlFor='name'>Name:</label>
-                        <input onChange={(event) => setName(event.target.value)} value={name} type="text" id='name' className='border-t-0 border-b-2 border-l-0 border-r-0' />
+                        <label className='text-gray-600 text-[15px] font-semibold my-3' htmlFor='name'>Name:</label>
+                        <input onChange={(event) => setName(event.target.value)} value={name} type="text" id='name' className='border-t-0 border-b-2 border-l-0 border-r-0 outline-none' />
                         <p className='text-red-900 font-semibold'>{nameErr}</p>
-                        <label className='text-gray-600 text-[15px] font-semibold my-4' htmlFor='pass'>Password:</label>
-                        <input onChange={(event) => setPassword(event.target.value)} value={password} type="password" id='pass' className='border-t-0 border-b-2 border-l-0 border-r-0' />
+                        <label className='text-gray-600 text-[15px] font-semibold my-3' htmlFor='pass'>Password:</label>
+                        <input onChange={(event) => setPassword(event.target.value)} value={password} type="password" id='pass' className='border-t-0 border-b-2 border-l-0 border-r-0 outline-none' />
                         <p className='text-red-900 font-semibold'>{passwordErr}</p>
-                        <label className='text-gray-600 text-[15px] font-semibold my-4'  htmlFor='email'>Email Id:</label>
-                        <input onChange={(event) => setEmail(event.target.value)} value={email} type="email" id='email' className='border-t-0 border-b-2 border-l-0 border-r-0' />
+                        <label className='text-gray-600 text-[15px] font-semibold my-3'  htmlFor='email'>Email Id:</label>
+                        <input onChange={(event) => setEmail(event.target.value)} value={email} type="email" id='email' className='border-t-0 border-b-2 border-l-0 border-r-0 outline-none' />
                         <p className='text-red-900 font-semibold'>{emailErr}</p>
-                        <label className='text-gray-600 text-[15px] font-semibold my-4' htmlFor='mobileNo'>Mobile Number:</label>
-                        <input onChange={(event) => setContact(event.target.value)} value={contactNo} type="text" id='mobileNo' className='border-t-0 border-b-2 border-l-0 border-r-0' />
+                        <label className='text-gray-600 text-[15px] font-semibold my-3' htmlFor='mobileNo'>Mobile Number:</label>
+                        <input onChange={(event) => setContact(event.target.value)} value={contactNo} type="text" id='mobileNo' className='border-t-0 border-b-2 border-l-0 border-r-0 outline-none' />
                         <p className='text-red-900 font-semibold'>{contactNoErr}</p>
                         {showCompanyInput === "seller" ?
                             (<>
-                                <label className='text-gray-600 text-[15px] font-semibold my-4' htmlFor='mobileNo'>Company Name:</label>
-                                <input onChange={(event) => setCompanyName(event.target.value)} value={companyName} type="text" id='mobileNo' className='border-t-0 border-b-2 border-l-0 border-r-0' />
+                                <label className='text-gray-600 text-[15px] font-semibold my-3' htmlFor='mobileNo'>Company Name:</label>
+                                <input onChange={(event) => setCompanyName(event.target.value)} value={companyName} type="text" id='mobileNo' className='border-t-0 border-b-2 border-l-0 border-r-0 outline-none' />
                                 <p className='text-red-900 font-semibold'>{companyErr}</p>
                             </>) : null}
                         <div>
