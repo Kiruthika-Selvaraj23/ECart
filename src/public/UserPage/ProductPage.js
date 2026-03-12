@@ -61,27 +61,29 @@ export default function ProductPage() {
           <ul className='flex justify-between flex-wrap'>
               {
                   productDatas.map(eachItem => (
-                      <li onClick={() => navigate(`/productDetail/${eachItem.productId}`)} key={eachItem.productId} className='min-w-[30%] bg-slate-50 shadow-2xl shadow-gray-700 rounded-md p-3 m-2'>
-                          <img className='h-[200px] w-full' src={`${url}/${eachItem.image.filePath}`} alt={eachItem.name} />
-                          <h2 className='text-gray-500 font-semibold text-[15px]'>{eachItem.brandName}</h2>
-                          <p className='font-bold'>{eachItem.name}</p>
-                          <div className='flex'>
-                              <p className='font-semibold text-gray-600'>Price: <span className='line-through'>{eachItem.price}</span></p>
-                              <p className='ml-3 text-blue-800 font-semibold'>{eachItem.originalPrice}</p>
-                              <p className='ml-3 text-green-900 font-semibold'>{eachItem.discount}% discount</p>
-                          </div>
-                          <div className='mt-2 flex'>
-                              <p className='font-semibold text-gray-600 mr-3'>Ratings: </p>
-                              {ratings.map(eachItem => (<img className='h-[20px]' src={RatingStar} alt="star" />))}
-                          </div>
-                          <div className='flex justify-between mt-5'>
+                      <li key={eachItem.productId} className='min-w-[30%] bg-slate-50 shadow-2xl shadow-gray-700 rounded-md p-3 m-2'>
+                          <div onClick={() => navigate(`/productDetail/${eachItem.productId}`)}>
+                              <img className='h-[200px] w-full' src={`${url}/${eachItem.image.filePath}`} alt={eachItem.name} />
+                              <h2 className='text-gray-500 font-semibold text-[15px]'>{eachItem.brandName}</h2>
+                              <p className='font-bold'>{eachItem.name}</p>
                               <div className='flex'>
-                                  <img className='h-[20px]' src={FreeDeliveryIcon} alt="free delivery" />
-                                  <p className='font-semibold text-gray-500 ml-2'>Free Delivery</p>
+                                  <p className='font-semibold text-gray-600'>Price: <span className='line-through'>{eachItem.price}</span></p>
+                                  <p className='ml-3 text-blue-800 font-semibold'>{eachItem.originalPrice}</p>
+                                  <p className='ml-3 text-green-900 font-semibold'>{eachItem.discount}% discount</p>
                               </div>
-                              <div className=''>
-                                  <button onClick={() => clickAddtoCartBtn(eachItem)} className='w-[150px] bg-gradient-to-t from-cyan-800 to-sky-500 focus:from-indigo-800 focus:to-violet-900 font-semibold p-2 rounded-[5px] text-white'>Add to Cart</button>
+                              <div className='mt-2 flex'>
+                                  <p className='font-semibold text-gray-600 mr-3'>Ratings: </p>
+                                  {ratings.map(eachItem => (<img className='h-[20px]' src={RatingStar} alt="star" />))}
                               </div>
+                              <div className='flex justify-between mt-3'>
+                                  <div className='flex'>
+                                      <img className='h-[20px]' src={FreeDeliveryIcon} alt="free delivery" />
+                                      <p className='font-semibold text-gray-500 ml-2'>Free Delivery</p>
+                                  </div>
+                                  </div>
+                          </div>
+                          <div className='flex justify-end'>
+                              <button onClick={() => clickAddtoCartBtn(eachItem)} className='w-[150px] bg-gradient-to-t from-cyan-800 to-sky-500 focus:from-indigo-800 focus:to-violet-900 font-semibold p-2 rounded-[5px] text-white'>Add to Cart</button>
                           </div>
                       </li>
                   ))

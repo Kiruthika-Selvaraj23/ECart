@@ -46,8 +46,11 @@ export default function Login() {
                     alert(data.message)
                     setLoginMail("")
                     setLoginPassword("")
-                    if (role === "user") {
+                    if (data.UserData.role === "user") {
                         navigate("/userHomePage")
+                    } 
+                    if (data.UserData.role === "seller") {
+                        navigate("/sellerHomePage")
                     }
                 } else {
                     alert(data.message)
