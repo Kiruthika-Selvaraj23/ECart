@@ -67,8 +67,8 @@ export default function ProductPage() {
                               <h2 className='text-gray-500 font-semibold text-[15px]'>{eachItem.brandName}</h2>
                               <p className='font-bold'>{eachItem.name}</p>
                               <div className='flex'>
-                                  <p className='font-semibold text-gray-600'>Price: <span className='line-through'>{eachItem.price}</span></p>
-                                  <p className='ml-3 text-blue-800 font-semibold'>{eachItem.originalPrice}</p>
+                                  <p className='font-semibold text-gray-600'>Price: <span className='line-through'>{eachItem.originalPrice}</span></p>
+                                  <p className='ml-3 text-blue-800 font-semibold'>{eachItem.price}</p>
                                   <p className='ml-3 text-green-900 font-semibold'>{eachItem.discount}% discount</p>
                               </div>
                               <div className='mt-2 flex'>
