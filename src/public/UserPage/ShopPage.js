@@ -13,7 +13,7 @@ export default function ShopPage() {
               <div className='flex justify-between mx-4 mt-5'>
                   <div className="h-[400px] min-w-[55%] bg-cover bg-center flex flex-col justify-center items-center" style={{ backgroundImage: `url(${ShopImage})` }}>
                       <h2 className='text-blue-800 italic font-semibold text-[25px]'>Shop All the Products</h2>
-                      <p className='text-gray-700 text-[15px] font-semibold'>Find Everything You Need, ALl in One Place</p>
+                      <p className='text-gray-700 text-[15px] font-semibold'>Find Everything You Need, All in One Place</p>
                   </div>
           
                   <div className='p-3 text-center max-w-[45%]'>

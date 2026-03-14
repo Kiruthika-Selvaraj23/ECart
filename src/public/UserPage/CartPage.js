@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import UserHeader from './UserHeader'
 import UserFooter from './UserFooter'
 import CartPageBanner from "../../assets/CartPageBgImage.jpg"
@@ -9,6 +9,9 @@ import { DContext } from '../../Store/MyContext'
 import { useNavigate } from 'react-router';
 
 export default function CartPage() {
+    const [orderStatus, setOrderStatus] = useState()
+    const [orderId, setOrderId] = useState()
+
     const navigate = useNavigate()
     const { cartProducts, setCartProducts } = useContext(DContext)
     const url = process.env.REACT_APP_URL
@@ -18,6 +21,32 @@ export default function CartPage() {
         console.log(filterCartProducts)
         setCartProducts(filterCartProducts)
     }
+
+    const placeOrder = async (productId, quantity) => {
+        try {
+            const options = {
+                method: "POST",
+                credentials: "include",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ productId: productId, productQuantity: quantity})
+            }
+            const response = await fetch(`${url}/order`, options)
+            const data = await response.json()
+            if (data.success) {
+                setOrderStatus(data.message)
+                setOrderId(productId)
+            }
+            else {
+                alert(data.message)
+            }
+        }
+        catch (err) {
+            alert("Trouble in placing order, Try again!")
+        }
+    }
+
     
     const ratings = [1,2,3,4]
   return (
@@ -74,9 +103,17 @@ export default function CartPage() {
                                                           <p className='font-semibold text-gray-500 ml-2'>Free Delivery</p>
                                                       </div>
                                                       <div>
-                                                          <button className='w-[150px] bg-gradient-to-t from-cyan-800 to-sky-500 focus:from-indigo-800 focus:to-violet-900 font-semibold p-2 rounded-[5px] text-white'>Buy Now</button>
+                                                          <button onClick={() => placeOrder(eachItem.productId, eachItem.quantity)} className='w-[150px] bg-gradient-to-t from-cyan-800 to-sky-500 focus:from-indigo-800 focus:to-violet-900 font-semibold p-2 rounded-[5px] text-white'>Buy Now</button>
                                                       </div>
                                                   </div>
+                                                  {
+                                                      orderStatus && orderId === eachItem.productId ? (
+                                                          <div className='flex my-3 justify-center bg-green-200 rounded-[5px]'>
+                                                              <svg xmlns="http://www.w3.org/2000/svg" height="22px" viewBox="0 -960 960 960" width="22px" fill="green"><path d="m424-296 282-282-56-56-226 226-114-114-56 56 170 170Zm56 216q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z" /></svg>
+                                                              <p className='text-green-800 font-semibold ml-1 text-[15px]'>{orderStatus}</p>
+                                                          </div>
+                                                      ) : null
+                                                  }
                                               </li>
                                           ))
                                       }
