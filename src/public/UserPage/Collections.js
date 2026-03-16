@@ -8,9 +8,11 @@ import NewArrivals from "../../assets/NewArrivals.png"
 import SeasonalDeals from "../../assets/SeasonalDeals.png"
 import StayUpdate from "../../assets/StayUpdated.png"
 import Bell from "../../assets/Bell.png"
+import { useNavigate } from 'react-router'
 
 
 export default function Collections() {
+  const navigate = useNavigate()
   return (
     <div className='mx-20 my-12'>
       <h1 className='text-blue-900 text-[25px] font-semibold italic'>Featured Collections</h1>
@@ -19,22 +21,22 @@ export default function Collections() {
         <li className='bg-orange-50 rounded-md p-3 text-center m-2 max-w-[30%]'>
           <img className='w-full h-[200px]' src={SummerCollections} alt="summer collections" />
           <h2 className='text-[20px] text-gray-700 font-semibold'>Summer Collections</h2>
-          <button className='p-2 text-white rounded-[5px] font-semibold bg-gradient-to-t from-blue-800 to-blue-500 my-4'>Shop Now</button>
+          <button onClick={() => navigate("/userShopPage")} className='p-2 text-white rounded-[5px] font-semibold bg-gradient-to-t from-blue-800 to-blue-500 my-4'>Shop Now</button>
         </li>
         <li className='bg-blue-200 rounded-md p-3 text-center m-2 max-w-[30%]'>
           <img className='w-full h-[200px]' src={TechGadgets} alt="summer collections" />
           <h2 className='text-[20px] text-gray-700 font-semibold'>Tech Gadgets</h2>
-          <button className='p-2 text-white rounded-[5px] font-semibold bg-gradient-to-t from-blue-800 to-blue-500 my-4'>Shop Now</button>
+          <button onClick={() => navigate("/userShopPage")} className='p-2 text-white rounded-[5px] font-semibold bg-gradient-to-t from-blue-800 to-blue-500 my-4'>Shop Now</button>
         </li>
         <li className='bg-yellow-50 rounded-md p-3 text-center m-2 max-w-[30%]'>
           <img className='w-full h-[200px]' src={KitchenSets} alt="summer collections" />
           <h2 className='text-[20px] text-gray-700 font-semibold'>Cozy Home Selection</h2>
-          <button className='p-2 text-white rounded-[5px] font-semibold bg-gradient-to-t from-blue-800 to-blue-500 my-4'>Shop Now</button>
+          <button onClick={() => navigate("/userShopPage")} className='p-2 text-white rounded-[5px] font-semibold bg-gradient-to-t from-blue-800 to-blue-500 my-4'>Shop Now</button>
         </li>
         <li className='bg-green-50 rounded-md p-3 text-center m-2 max-w-[30%]'>
           <img className='w-full h-[200px]' src={Sports} alt="summer collections" />
           <h2 className='text-[20px] text-gray-700 font-semibold'>Fitness & Sports</h2>
-          <button className='p-2 text-white rounded-[5px] font-semibold bg-gradient-to-t from-blue-800 to-blue-500 my-4'>Shop Now</button>
+          <button onClick={() => navigate("/userShopPage")} className='p-2 text-white rounded-[5px] font-semibold bg-gradient-to-t from-blue-800 to-blue-500 my-4'>Shop Now</button>
         </li>
       </ul>
       

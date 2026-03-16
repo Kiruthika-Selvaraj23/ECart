@@ -23,14 +23,13 @@ export default function MyContext(props) {
     const [registrationCardDatas, setRegistrationCardDatas] = useState(RegisterCardDetails)
     const [showCompanyInput, setCompanyInput] = useState("user")
     const [role, setRole] = useState("user")
-    const [productDatas, setProductDatas] = useState([])
     const [cartProducts, setCartProducts] = useState([])
 
     const [userDetails, setUserDetails] = useState({})
 
     const data = {
         showRegiserCard, setRegisterCard, showRegisterFrom, setRegisterForm, registrationCardDatas, setRegistrationCardDatas, showCompanyInput, setCompanyInput,
-        showLoginForm, setLoginForm, role, setRole, productDatas, setProductDatas, cartProducts, setCartProducts, userDetails, setUserDetails
+        showLoginForm, setLoginForm, role, setRole, cartProducts, setCartProducts, userDetails, setUserDetails
     }
     
     return (

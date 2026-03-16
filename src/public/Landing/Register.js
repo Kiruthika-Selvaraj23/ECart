@@ -35,7 +35,7 @@ export default function Register() {
                 setPwdErr("")
             }
             if (email === "") {
-                setEmailErr("*Enter Your email")
+                setEmailErr("*Enter Your Email Id")
                 isValid = false
             } else {
                 setEmailErr("")

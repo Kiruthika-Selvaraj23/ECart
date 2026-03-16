@@ -1,11 +1,13 @@
-import React, { useContext, useEffect, useState } from 'react'
-import SellerHeader from './SellerHeader'
-import SellerFooter from './SellerFooter'
-import { DContext } from '../../Store/MyContext'
+import React, { useEffect, useState } from 'react'
+import AdminHeader from './AdminHeader'
+import AdminFooter from './AdminFooter'
+import FreeDeliveryIcon from "../../assets/FreeDeliveryIcon.png"
+import RatingStar from "../../assets/RatingStar.png"
 
-export default function ProductPage() {
-    const [companyProducts, setCompanyProducts] = useState([])
+export default function AdminProductsPage() {
+    const [productDatas, setProductDatas] = useState([])
     const [showProductFrom, setProductForm] = useState(false)
+
     const [brandName, setBrandName] = useState("")
     const [productName, setProductName] = useState("")
     const [desc, setDesc] = useState("")
@@ -14,7 +16,6 @@ export default function ProductPage() {
     const [discount, setDiscount] = useState("")
     const [quantity, setQuantity] = useState(0)
     const [productImage, setProductImage] = useState(null)
-    const [btnName, setBtnName] = useState("Add Product")
     const [editProductId, setEditProductId] = useState(null)
     const [productPrevImg, setProductPrevImg] = useState(true)
 
@@ -26,131 +27,33 @@ export default function ProductPage() {
     const [discountErr, setDiscountErr] = useState("")
     const [quantityErr, setQuantityErr] = useState("")
     const [productImageErr, setProductImageErr] = useState(null)
-    
-     
-    const { userDetails } = useContext(DContext)
 
-    useEffect(() => {
-        getCompanyProducts()
-    },[])
+    
 
     const url = process.env.REACT_APP_URL
-    const getCompanyProducts = async () => {
-        try {
-            const option = {
-                method: "GET",
-                credentials: "include"
-            }
-            const response = await fetch(`${url}/getCompanyProducts`, option)
-            const data = await response.json()
-            if (data.success) {
-                setCompanyProducts(data.companyProducts)
-            }
-            else {
-                alert(data.message)
-            }
-        } catch (err) {
-            alert("Err in getting company producs")
-        }
-    }
-
-    const submitProduct = async () => {
-        try {
-            let isValid = true 
-            if (brandName === "") {
-                setBrandNameErr("*Enter brand name")
-                isValid = false
-            }
-            else {
-                setBrandNameErr("")
-            }
-            if (productName === "") {
-                setProductNameErr("*Enter product name")
-                isValid = false
-            }
-            else {
-                setProductNameErr("")
-            }
-            if (desc === "") {
-                setDescErr("*Enter product description")
-                isValid = false
-            }
-            else {
-                setDescErr("")
-            }
-            if (mrp === "") {
-                setMrpErr("*Enter MRP")
-                isValid = false
-            }
-            else {
-                setMrpErr("")
-            }
-            if (originalPrice === "") {
-                setOriginalPriceErr("*Enter original price")
-                isValid = false
-            }
-            else {
-                setOriginalPriceErr("")
-            }
-            if (discount === "") {
-                setDiscountErr("*Enter discount")
-                isValid = false
-            }
-            else {
-                setDiscountErr("")
-            }
-            if (quantity === 0) {
-                setQuantityErr("*Enter quantity")
-                isValid = false
-            }
-            else {
-                setQuantityErr("")
-            }
-            if (productImage === null) {
-                setProductImageErr("*Upload product image")
-                isValid = false
-            }
-            else {
-                setProductImageErr("")
-            }
-            if (isValid) {
-                const formData = new FormData()
-                formData.append("brandName", brandName)
-                formData.append("productName", productName)
-                formData.append("productDesc", desc)
-                formData.append("currentPrice", mrp)
-                formData.append("productOriginalPrice", originalPrice)
-                formData.append("discount", discount)
-                formData.append("productQuantity", quantity)
-                formData.append("product", productImage)
-
+    
+        useEffect(() => {
+            getProductsData()
+        }, [])
+        
+        const getProductsData = async () => {
+            try {
+                const url = process.env.REACT_APP_URL
                 const options = {
-                    method: "POST",
-                    credentials: "include",
-                    body: formData
+                    method: "GET",
+                    credentials: "include"
                 }
-                const response = await fetch(`${url}/product`, options)
+                const response = await fetch(`${url}/getProducts`, options)
                 const data = await response.json()
                 if (data.success) {
-                    alert("Product posted successfully")
-                    setBrandName("")
-                    setProductName("")
-                    setDesc("")
-                    setMrp("")
-                    setOriginalPrice("")
-                    setDiscount("")
-                    setQuantity(0)
-                    setProductImage(null)
-                    getCompanyProducts()
+                    setProductDatas(data.productDetails)
                 }
                 else {
                     alert(data.message)
                 }
-           }
-        }
-        catch (err) {
-            alert("Trouble in Posting Product")
-        }
+            } catch (err) {
+                alert("Trouble in getting products")
+            }
     }
 
     const updateProduct = async () => {
@@ -182,8 +85,7 @@ export default function ProductPage() {
                 setDiscount("")
                 setQuantity(0)
                 setProductImage(null)
-                setBtnName("Add Product")
-                getCompanyProducts()
+                getProductsData()
             } else {
                 alert(data.message)
             }
@@ -192,33 +94,6 @@ export default function ProductPage() {
         }
     }
 
-    const deleteProduct = async (productId) => {
-        try {
-            const options = {
-                method: "DELETE",
-                credentials: "include"
-            }
-            const response = await fetch(`${url}/deleteProduct/${productId}`, options)
-            const data = await response.json()
-            if (data.success) {
-                alert(data.message)
-                getCompanyProducts()
-            } else {
-                alert(data.message)
-            }
-      } catch(err){
-        alert("Trouble in deleting product")
-      }
-    }
-
-  
-    const clickFormBtn = () => {
-        if (btnName === "Add Product") {
-            submitProduct()
-        } else if (btnName === "Save") {
-            updateProduct()
-        }
-    }
 
     const clickEditProductBtn = (item) => {
         setProductForm(true)
@@ -229,8 +104,7 @@ export default function ProductPage() {
         setOriginalPrice(item.originalPrice)
         setDiscount(item.discount)
         setQuantity(item.quantity)
-        setProductImage(item.image.filePath)    
-        setBtnName("Save")
+        setProductImage(item.image.filePath)
         setEditProductId(item.productId)
         setProductPrevImg(true)
     }
@@ -245,7 +119,6 @@ export default function ProductPage() {
         setDiscount("")
         setQuantity(0)
         setProductImage(null)
-        setBtnName("Add Product")
         setBrandNameErr("")
         setProductNameErr("")
         setDescErr("")
@@ -255,6 +128,27 @@ export default function ProductPage() {
         setQuantityErr("")
         setProductImageErr("")
     }
+
+
+    const deleteProduct = async (productId) => {
+        try {
+            const options = {
+                method: "DELETE",
+                credentials: "include"
+            }
+            const response = await fetch(`${url}/deleteProduct/${productId}`, options)
+            const data = await response.json()
+            if (data.success) {
+                alert(data.message)
+                getProductsData()
+            } else {
+                alert(data.message)
+            }
+        } catch (err) {
+            alert("Trouble in deleting product")
+        }
+    }
+
 
     const renderProductForm = () => (
         <div id="addProduct-form" className='bg-slate-50 p-5 rounded-md shadow-2xl shadow-gray-700 mt-7 mb-10'>
@@ -313,78 +207,79 @@ export default function ProductPage() {
 
                 <h2 className='text-[20px] font-semibold text-gray-800'>Product Image</h2>
                 {
-                    productPrevImg ? <img className='ml-5 h-[200px] w-[30%] my-3' src={`${url}/${productImage}`} alt="product"/> : null
+                    productPrevImg ? <img className='ml-5 h-[200px] w-[30%] my-3' src={`${url}/${productImage}`} alt="product" /> : null
                 }
                 <div className='my-3'>
-                    <input onChange={(event) => { setProductImage(event.target.files[0]);  setProductPrevImg(false)}} className='ml-5 pl-4 p-[2px] w-[83%] outline-none border-[1px] border-gray-400 rounded-[4px] file:bg-blue-900 file:text-white
+                    <input onChange={(event) => { setProductImage(event.target.files[0]); setProductPrevImg(false) }} className='ml-5 pl-4 p-[2px] w-[83%] outline-none border-[1px] border-gray-400 rounded-[4px] file:bg-blue-900 file:text-white
                     file:border-0 file:rounded-sm file:h-[35px] file:font-semibold file:my-2'  type='file' />
                 </div>
                 <p className='text-red-900 font-semibold ml-44'>{productImageErr}</p>
             </form>
             <div className='flex justify-end mt-4'>
                 <button onClick={() => clickCancenlBtn()} className='border-[1px] border-gray-400 p-2 rounded-[4px] text-gray-700 font-semibold'>Cancel</button>
-                <button onClick={() => clickFormBtn()} className='ml-5 p-2 text-white rounded-[5px] font-semibold bg-gradient-to-t from-blue-800 to-blue-500'>{btnName}</button>
+                <button onClick={() => updateProduct()} className='ml-5 p-2 text-white rounded-[5px] font-semibold bg-gradient-to-t from-blue-800 to-blue-500'>Save</button>
             </div>
 
         </div>
     )
 
 
+    const ratings = [1, 2, 3, 4]
+
+    
   return (
       <>
-          <SellerHeader />
+          <AdminHeader />
           <div className='bg-gradient-to-tr from-blue-100 to-white min-h-[100vh] p-5'>
-              <div className='mt-[90px] mx-20'>
-                  <div className='flex justify-between'>
-                      <div>
-                          <h1 className='text-[30px] font-bold text-blue-800'>Your Products</h1>
-                          <p className='text-gray-700 font-semibold text-[17px] mt-2'>Manage and update all your products in one place</p>
-                      </div>
-                      <div>
-                          <button onClick={() => {setProductForm(true); setProductPrevImg(false) }} className='p-2 text-white rounded-[5px] font-semibold bg-gradient-to-t from-blue-800 to-blue-500 my-4'>Add Product +</button>
-                      </div>
-                  </div>
-
-                  <div className='mt-7'>
-                      <h1 className='text-[30px] mt-2 text-blue-950 font-semibold'>CompanyName: {userDetails?.companyName}</h1>
-                      <hr className='border-t-[1px] border-gray-300 my-4'/>
-                  </div>
+              <div className='mx-20 mt-[90px]'>
+                  <h1 className='text-blue-700 text-[30px] italic font-semibold'>Manage Products</h1>
+                  <p className='text-gray-600 text-[17px] font-semibold'>View, manage and organize your product inventory all in one place.</p>
+                  <p className='text-gray-600 text-[17px] font-semibold'>Easily edit existing onces, and keep track of your stock.</p>
 
                   {showProductFrom ? renderProductForm() : null}
 
-                  <div>
-                      <h2 className='text-[20px] font-semibold text-gray-600 mb-4'>Your Company Products :-</h2>
-                      <ul className='flex justify-between flex-wrap'>
-                          {
-                              companyProducts.map(eachItem => (
-                                  <li key={eachItem.productId} className='min-w-[30%] bg-slate-50 shadow-2xl shadow-gray-700 rounded-md p-3 m-2'>
-                                      <div>
-                                          <img className='h-[200px] w-full' src={`${url}/${eachItem.image.filePath}`} alt={eachItem.name} />
-                                          <h2 className='text-gray-500 font-semibold text-[15px]'>{eachItem.brandName}</h2>
-                                          <p className='font-bold'>{eachItem.name}</p>
+                  <ul className='flex justify-between flex-wrap my-9'>
+                      {
+                          productDatas.map(eachItem => (
+                              <li key={eachItem.productId} className='min-w-[30%] bg-slate-50 shadow-2xl shadow-gray-700 rounded-md p-3 m-2'>
+                                  <div >
+                                      <img className='h-[200px] w-full' src={`${url}/${eachItem.image.filePath}`} alt={eachItem.name} />
+                                      <p className='text-gray-700 font-semibold my-2'>Seller Company Name: <span className='text-blue-950'>{eachItem.sellerCompanyName}</span></p>
+                                      <h2 className='text-gray-500 font-semibold text-[15px]'>{eachItem.brandName}</h2>
+                                      <p className='font-bold'>{eachItem.name}</p>
+                                      <div className='flex'>
+                                          <p className='font-semibold text-gray-600'>Price: <span className='line-through'>{eachItem.originalPrice}</span></p>
+                                          <p className='ml-3 text-blue-800 font-semibold'>{eachItem.price}</p>
+                                          <p className='ml-3 text-green-900 font-semibold'>{eachItem.discount}% discount</p>
+                                      </div>
+                                      <div className='mt-2 flex'>
+                                          <p className='font-semibold text-gray-600 mr-3'>Ratings: </p>
+                                          {ratings.map(eachItem => (<img className='h-[20px]' src={RatingStar} alt="star" />))}
+                                      </div>
+                                      <div className='flex justify-between mt-3'>
                                           <div className='flex'>
-                                              <p className='font-semibold text-gray-600'>Price: <span className='line-through'>{eachItem.originalPrice}</span></p>
-                                              <p className='ml-3 text-blue-800 font-semibold'>{eachItem.price}</p>
-                                              <p className='ml-3 text-green-900 font-semibold'>{eachItem.discount}% discount</p>
+                                              <img className='h-[20px]' src={FreeDeliveryIcon} alt="free delivery" />
+                                              <p className='font-semibold text-gray-500 ml-2'>Free Delivery</p>
                                           </div>
-                                          <p className='font-semibold text-gray-600'>Quantity: <span className='text-black'>{eachItem.quantity}</span></p>
-
                                       </div>
-                                      <div className='flex flex-col items-end mt-2'>
+                                  </div>
+                                  <div className='flex justify-end mt-3'>
+                                      <a href='#addProduct-form'>
                                           <button onClick={() => clickEditProductBtn(eachItem)} className='w-[150px] bg-gradient-to-t from-cyan-800 to-sky-500 focus:from-indigo-800 focus:to-violet-900 font-semibold p-2 rounded-[5px] text-white'>Edit Product</button>
-                                          <button onClick={() => deleteProduct(eachItem.productId)} className=' mt-2 w-[150px] bg-gradient-to-r from-red-800 to-red-400 focus:from-indigo-800 focus:to-violet-900 font-semibold p-2 rounded-[5px] text-white'>Delete Product</button>
-                                      </div>
+                                      </a>
+                                      <button onClick={() => deleteProduct(eachItem.productId)} className='ml-2 w-[150px] bg-gradient-to-r from-red-800 to-red-400 focus:from-indigo-800 focus:to-violet-900 font-semibold p-2 rounded-[5px] text-white'>Delete Product</button>
+                                  </div>
 
-                                  </li>
-                              ))
-                          }
-                      </ul>
+                              </li>
+                          ))
+                      }
+                  </ul>
 
-                  </div>
                   
-                </div>
+              </div>
+
           </div>
-          <SellerFooter/>
+          <AdminFooter/>
       </>
   )
 }

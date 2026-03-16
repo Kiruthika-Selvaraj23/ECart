@@ -5,10 +5,11 @@ import { DContext } from '../../Store/MyContext'
 import { useNavigate } from 'react-router'
 
 export default function ProductPage() {
+    const [productDatas, setProductDatas] = useState([])
     const [orderStatus, setOrderStatus] = useState()
     const [orderId, setOrderId] = useState()
 
-    const { productDatas, setProductDatas, cartProducts, setCartProducts } = useContext(DContext)
+    const {cartProducts, setCartProducts } = useContext(DContext)
     const navigate = useNavigate()
     
     const url = process.env.REACT_APP_URL
@@ -18,18 +19,22 @@ export default function ProductPage() {
     }, [])
     
     const getProductsData = async () => {
-        const url = process.env.REACT_APP_URL
-        const options = {
-            method: "GET",
-            credentials: "include"
-        }
-        const response = await fetch(`${url}/getProducts`, options)
-        const data = await response.json()
-        if (data.success) {
-            setProductDatas(data.productDetails)
-        }
-        else {
-            alert(data.message)
+        try {
+            const url = process.env.REACT_APP_URL
+            const options = {
+                method: "GET",
+                credentials: "include"
+            }
+            const response = await fetch(`${url}/getProducts`, options)
+            const data = await response.json()
+            if (data.success) {
+                setProductDatas(data.productDetails)
+            }
+            else {
+                alert(data.message)
+            }
+        } catch (err) {
+            alert("Trouble in getting products")
         }
     }
 

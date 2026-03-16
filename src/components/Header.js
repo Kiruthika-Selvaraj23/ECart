@@ -20,7 +20,7 @@ export default function Header() {
     return (
         <header>
             <div className='bg-blue-950 text-white flex justify-between items-center h-[90px] px-10'>
-                <img className="h-[130px]" src={ECartLogo} alt="logo" />
+                <img className="h-[40px]" src={ECartLogo} alt="logo" />
                 <div className='w-[13%] flex justify-between items-center'>
                     <button onClick={() => clickRegisterBtn()} className='bg-white text-black rounded-[3px] p-2'>Register</button>
                     <button onClick={() => clickLoginBtn()} className='bg-white text-black rounded-[3px] p-2'>Login</button>

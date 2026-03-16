@@ -35,10 +35,6 @@ export default function UserOrderPage() {
         }
     }
 
-    const clickViewDetails = (id) => {
-        navigate(`/productDetail/${id}`)
-    }
-
     const renderOrderedItems = () => (
         <ul className='flex flex-col my-7'>
             {
@@ -58,9 +54,8 @@ export default function UserOrderPage() {
                             </div>
 
                             <div className='flex flex-col justify-center'>
-                                <button onClick={() => clickViewDetails(eachItem.product.productId)} className='border-[2px] border-gray-400 text-gray-700 p-1 rounded-[4px]'>View Details</button>
+                                <button onClick={() => navigate(`/productDetail/${eachItem.product.productId}`)} className='border-[2px] border-gray-400 text-gray-700 p-1 rounded-[4px]'>View Details</button>
                             </div>
-
                         </div>
 
                         <p className='text-gray-700 font-semibold bg-gray-200 p-1 pl-2 rounded-md'>Placed On: {new Date(eachItem.createdAt).toLocaleDateString()}</p>

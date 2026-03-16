@@ -10,7 +10,7 @@ export default function Login() {
     const [loginPwdErr, setLoginPwdErr] = useState("")
 
     const navigate = useNavigate() 
-    const { setUserDetails, role } = useContext(DContext)
+    const { setUserDetails} = useContext(DContext)
 
     const submitLoginForm = async (event) => {
         event.preventDefault()
@@ -18,13 +18,13 @@ export default function Login() {
         try {
             let isValid = true
             if (loginMail === "") {
-                setLoginEmailErr("*Enter Your Name")
+                setLoginEmailErr("*Email Id is Mandatory")
                 isValid = false
             } else {
                 setLoginEmailErr("")
             }
             if (loginPassword === "") {
-                setLoginPwdErr("*Enter Your Name")
+                setLoginPwdErr("*Password is Mandotary")
                 isValid = false
             } else {
                 setLoginPwdErr("")
@@ -51,6 +51,9 @@ export default function Login() {
                     } 
                     if (data.UserData.role === "seller") {
                         navigate("/sellerHomePage")
+                    }
+                    if (data.UserData.role === "admin") {
+                        navigate("/adminsHomePage")
                     }
                 } else {
                     alert(data.message)
