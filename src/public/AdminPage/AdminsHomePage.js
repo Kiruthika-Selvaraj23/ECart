@@ -6,6 +6,14 @@ import FreeDelivery from "../../assets/Freedelivery.png"
 import Payment from "../../assets/SecurePayment.png"
 import EasyReturn from "../../assets/EasyReturn.png"
 import CustomerSupport from "../../assets/CallSupport.png"
+import ManageProducts from "../../assets/ManageProducts.png"
+import CustomerManagement from '../../assets/CustomerManagement.png'
+import SalesReport from "../../assets/SalesReport.jpeg"
+import EasyOrder from "../../assets/EasyOrder.png"
+import ProductManagement from "../../assets/ProductManagement.png"
+import SalesRevenue from "../../assets/Sales&Revenue.png"
+import SecureReliable from "../../assets/Secure&Reliable.png"
+
 
 export default function AdminsHomePage() {
   return (
@@ -23,21 +31,21 @@ export default function AdminsHomePage() {
 
                   <ul className='flex justify-between flex-wrap my-5'>
                       <li className='p-3 bg-blue-200 rounded-md min-w-[25%] m-3'>
-                          <img className='h-[100px] w-full' src="" alt="products" />
+                          <img className='h-[100px] w-full' src={ManageProducts} alt="products" />
                           <h1 className='text-blue-800 text-[20px] font-semibold'>Manage Products</h1>
                           <p className='text-gray-600 text-[15px] font-semibold'>500+ total products</p>
                           <button className='my-3 text-white bg-gradient-to-t from-blue-600 to-blue-500 border-0 p-2 rounded-sm font-semibold '>View Products</button>
                       </li>
 
                       <li className='p-3 bg-green-200 rounded-md min-w-[25%] m-3'>
-                          <img className='h-[100px] w-full' src="" alt="customers" />
+                          <img className='h-[100px] w-full' src={CustomerManagement} alt="customers" />
                           <h1 className='text-green-800 text-[20px] font-semibold'>Customer Management</h1>
                           <p className='text-gray-600 text-[15px] font-semibold'>1000+ registered Customers</p>
                           <button className='my-3 text-white bg-gradient-to-t from-green-600 to-green-500 border-0 p-2 rounded-sm font-semibold '>View Customers</button>
                       </li>
 
                       <li className='p-3 bg-orange-200 rounded-md min-w-[25%] m-3'>
-                          <img className='h-[100px] w-full' src="" alt="reports" />
+                          <img className='h-[100px] w-full' src={SalesReport} alt="reports" />
                           <h1 className='text-orange-800 text-[20px] font-semibold'>Sales Reports</h1>
                           <p className='text-gray-600 text-[15px] font-semibold'>INR 1,20,987 in sales this week</p>
                           <button className='my-3 text-white bg-gradient-to-t from-orange-600 to-orange-500 border-0 p-2 rounded-sm font-semibold '>View Reports</button>
@@ -50,25 +58,25 @@ export default function AdminsHomePage() {
 
                       <ul className='flex justify-between flex-wrap my-5'>
                           <li className='p-3 bg-white rounded-md min-w-[25%] m-3'>
-                              <img className='h-[100px] w-full' src="" alt="products" />
+                              <img className='h-[130px] w-full' src={EasyOrder} alt="products" />
                               <h1 className='text-gray-800 text-[20px] font-semibold'>Easy Order Manage..</h1>
                               <p className='text-gray-600 text-[15px] font-semibold'>Track and update orders seamlessly.</p>
                           </li>
 
-                          <li className='p-3 bg-blue-200 rounded-md min-w-[25%] m-3'>
-                              <img className='h-[100px] w-full' src="" alt="products" />
+                          <li className='p-3 bg-orange-200 rounded-md min-w-[25%] m-3'>
+                              <img className='h-[130px] w-full' src={ProductManagement} alt="products" />
                               <h1 className='text-blue-800 text-[20px] font-semibold'>Product Management</h1>
                               <p className='text-gray-600 text-[15px] font-semibold'>Add, update and organize products.</p>
                           </li>
 
                           <li className='p-3 bg-green-200 rounded-md min-w-[25%] m-3'>
-                              <img className='h-[100px] w-full' src="" alt="products" />
+                              <img className='h-[130px] w-full' src={SalesRevenue} alt="products" />
                               <h1 className='text-green-800 text-[20px] font-semibold'>Sales & Revenue Analysis</h1>
                               <p className='text-gray-600 text-[15px] font-semibold'>Monitor sales and revenue performance.</p>
                           </li>
 
-                          <li className='p-3 bg-orange-200 rounded-md min-w-[25%] m-3'>
-                              <img className='h-[100px] w-full' src="" alt="products" />
+                          <li className='p-3 bg-blue-200 rounded-md min-w-[25%] m-3'>
+                              <img className='h-[130px] w-full' src={SecureReliable} alt="products" />
                               <h1 className='text-orange-800 text-[20px] font-semibold'>Secure & Reliable</h1>
                               <p className='text-gray-600 text-[15px] font-semibold'>Ensure secure transactions</p>
                           </li>

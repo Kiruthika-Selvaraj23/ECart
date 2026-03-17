@@ -4,6 +4,7 @@ import AdminFooter from './AdminFooter'
 import FreeDeliveryIcon from "../../assets/FreeDeliveryIcon.png"
 import RatingStar from "../../assets/RatingStar.png"
 
+
 export default function AdminProductsPage() {
     const [productDatas, setProductDatas] = useState([])
     const [showProductFrom, setProductForm] = useState(false)

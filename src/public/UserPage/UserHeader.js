@@ -28,8 +28,8 @@ export default function UserHeader() {
 
     return (
         <header>
-            <div className='bg-blue-950 text-white flex justify-between items-center h-[75px] px-10'>
-                <img className='h-[40px]' src={ECartLogo} alt="logo" />
+            <div className='bg-blue-950 text-white flex justify-between items-center h-[75px] px-20'>
+                <img className='h-[35px] lg:h-[40px]' src={ECartLogo} alt="logo" />
                 <div className='flex justify-between w-[50%]'>
                     <ul className='w-[80%] flex justify-around items-center text-[23px] text-white font-semibold'>
                         <li onClick={() => navigate("/userHomePage")}>Home</li>

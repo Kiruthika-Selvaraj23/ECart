@@ -87,23 +87,24 @@ export default function ProductPage() {
     const ratings = [1,2,3,4]
 
   return (
-      <div className='mx-20 mt-10'>
-          <h1 className='text-[30px] font-semibold italic text-blue-800'>All Products</h1>
-          <hr className="border-t border-0 border-gray-400 w-full my-5" />
+      <div className='mx-5 sm:mx-10 lg:mx-20 mt-10'>
+          <h1 className='text-[20px] lg:text-[30px] font-semibold italic text-blue-800'>All Products</h1>
+          <hr className="border-t border-0 border-gray-400 w-full my-3 sm:my-5" />
 
           <ul className='flex justify-between flex-wrap'>
               {
                   productDatas.map(eachItem => (
-                      <li key={eachItem.productId} className='min-w-[30%] bg-slate-50 shadow-2xl shadow-gray-700 rounded-md p-3 m-2'>
+                      <li key={eachItem.productId} className='max-w-[90%] sm:max-w-[45%] lg:min-w-[30%] bg-slate-50 shadow-2xl shadow-gray-700 rounded-md p-3 m-2'>
                           <div onClick={() => navigate(`/productDetail/${eachItem.productId}`)}>
-                              <img className='h-[200px] w-full' src={`${url}/${eachItem.image.filePath}`} alt={eachItem.name} />
-                              <h2 className='text-gray-500 font-semibold text-[15px]'>{eachItem.brandName}</h2>
+                              <img className='h-[170px] lg:h-[200px] w-full' src={`${url}/${eachItem.image.filePath}`} alt={eachItem.name} />
+                              <h2 className='text-gray-500 font-semibold text-[13px] lg:text-[15px]'>{eachItem.brandName}</h2>
                               <p className='font-bold'>{eachItem.name}</p>
-                              <div className='flex'>
+                              <div className='flex text-[15px] lg:text-[17px]'>
                                   <p className='font-semibold text-gray-600'>Price: <span className='line-through'>{eachItem.originalPrice}</span></p>
                                   <p className='ml-3 text-blue-800 font-semibold'>{eachItem.price}</p>
-                                  <p className='ml-3 text-green-900 font-semibold'>{eachItem.discount}% discount</p>
+                                  <p className='sm:hidden lg:block ml-3 text-green-900 font-semibold'>{eachItem.discount}% discount</p>
                               </div>
+                              <p className='block lg:hidden text-green-900 font-semibold'>{eachItem.discount}% discount</p>
                               <div className='mt-2 flex'>
                                   <p className='font-semibold text-gray-600 mr-3'>Ratings: </p>
                                   {ratings.map(eachItem => (<img className='h-[20px]' src={RatingStar} alt="star" />))}
@@ -116,8 +117,8 @@ export default function ProductPage() {
                                   </div>
                           </div>
                           <div className='flex justify-end mt-3'>
-                              <button onClick={() => clickAddtoCartBtn(eachItem)} className='w-[120px] bg-gradient-to-t from-cyan-800 to-sky-500 focus:from-indigo-800 focus:to-violet-900 font-semibold p-2 rounded-[5px] text-white'>Add to Cart</button>
-                              <button onClick={() => placeOrder(eachItem.productId)} className='ml-3 w-[120px] bg-gradient-to-b from-cyan-800 to-sky-500 focus:from-green-700 focus:to-green-950 font-semibold p-2 rounded-[5px] text-white'>Buy Now</button>
+                              <button onClick={() => clickAddtoCartBtn(eachItem)} className='w-[90px] text-[13px] lg:text-[17px] lg:w-[120px] bg-gradient-to-t from-cyan-800 to-sky-500 focus:from-indigo-800 focus:to-violet-900 font-semibold p-2 rounded-[5px] text-white'>Add to Cart</button>
+                              <button onClick={() => placeOrder(eachItem.productId)} className='ml-3 w-[90px] text-[13px] lg:text-[17px] lg:w-[120px] bg-gradient-to-b from-cyan-800 to-sky-500 focus:from-green-700 focus:to-green-950 font-semibold p-2 rounded-[5px] text-white'>Buy Now</button>
                           </div>
 
                           {
