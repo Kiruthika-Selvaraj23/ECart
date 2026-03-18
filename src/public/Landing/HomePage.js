@@ -29,7 +29,7 @@ export default function HomePage() {
         <ul className='flex flex-col md:flex-row justify-center items-center my-10'>
             {
                 registrationCardDatas.map(eachItem => (
-                    <li key={eachItem.id} className='bg-slate-100 p-3 rounded-md shadow-2xl shadow-gray-600 max-w-[80%] sm:max-w-[60%] md:max-w-[45%] lg:max-w-[35%] m-4'>
+                    <li key={eachItem.id} className='bg-slate-100 p-3 rounded-md shadow-2xl shadow-gray-600 max-w-[80%] sm:max-w-[60%] md:max-w-[45%] lg:max-w-[35%] xl:max-w-[25%] m-4'>
                         <img className='h-[200px] sm:h-[250px] w-full' src={eachItem.image} alt="seller" />
                         <h1 className='text-blue-700 font-semibold italic text-[15px] sm:text-[20px] text-center mb-3'>{eachItem.heading}</h1>
                         <p className='text-gray-600 font-semibold text-[13px] sm:text-[15px] mb-5'>{eachItem.desc}</p>

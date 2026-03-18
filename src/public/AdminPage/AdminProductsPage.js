@@ -232,43 +232,44 @@ export default function AdminProductsPage() {
       <>
           <AdminHeader />
           <div className='bg-gradient-to-tr from-blue-100 to-white min-h-[100vh] p-5'>
-              <div className='mx-20 mt-[90px]'>
-                  <h1 className='text-blue-700 text-[30px] italic font-semibold'>Manage Products</h1>
-                  <p className='text-gray-600 text-[17px] font-semibold'>View, manage and organize your product inventory all in one place.</p>
-                  <p className='text-gray-600 text-[17px] font-semibold'>Easily edit existing onces, and keep track of your stock.</p>
+              <div className='mx-5 sm:mx-10 lg:mx-20 mt-[90px]'>
+                  <h1 className='text-blue-700 text-[22px] sm:text-[25px] lg:text-[30px] italic font-semibold'>Manage Products</h1>
+                  <p className='text-gray-600 text-[13px] sm:text-[15px] lg:text-[17px] font-semibold'>View, manage and organize your product inventory all in one place.</p>
+                  <p className='text-gray-600 text-[13px] sm:text-[15px] lg:text-[17px] font-semibold'>Easily edit existing onces, and keep track of your stock.</p>
 
                   {showProductFrom ? renderProductForm() : null}
 
-                  <ul className='flex justify-between flex-wrap my-9'>
+                  <ul className='flex justify-between flex-wrap my-6 lg:my-9'>
                       {
                           productDatas.map(eachItem => (
-                              <li key={eachItem.productId} className='min-w-[30%] bg-slate-50 shadow-2xl shadow-gray-700 rounded-md p-3 m-2'>
+                              <li key={eachItem.productId} className='max-w-[90%] sm:max-w-[42%] lg:min-w-[30%] bg-slate-50 shadow-2xl shadow-gray-700 rounded-md p-3 m-2'>
                                   <div >
-                                      <img className='h-[200px] w-full' src={`${url}/${eachItem.image.filePath}`} alt={eachItem.name} />
-                                      <p className='text-gray-700 font-semibold my-2'>Seller Company Name: <span className='text-blue-950'>{eachItem.sellerCompanyName}</span></p>
-                                      <h2 className='text-gray-500 font-semibold text-[15px]'>{eachItem.brandName}</h2>
-                                      <p className='font-bold'>{eachItem.name}</p>
-                                      <div className='flex'>
+                                      <img className='h-[140px] sm:h-[150px] lg:h-[200px] w-full' src={`${url}/${eachItem.image.filePath}`} alt={eachItem.name} />
+                                      <p className='text-[14px] sm:text-[15px] lg:text-[17px] text-gray-700 font-semibold my-2'>Seller Company Name: <span className='text-blue-950'>{eachItem.sellerCompanyName}</span></p>
+                                      <h2 className='text-gray-500 font-semibold text-[12px] sm:text-[13px] lg:text-[15px]'>{eachItem.brandName}</h2>
+                                      <p className='text-[15px] sm:text-[16px] lg:text-[18px] font-bold'>{eachItem.name}</p>
+                                      <div className='flex text-[15px] sm:text-[16px] lg:text-[18px]'>
                                           <p className='font-semibold text-gray-600'>Price: <span className='line-through'>{eachItem.originalPrice}</span></p>
                                           <p className='ml-3 text-blue-800 font-semibold'>{eachItem.price}</p>
-                                          <p className='ml-3 text-green-900 font-semibold'>{eachItem.discount}% discount</p>
+                                          <p className='hidden lg:block ml-3 text-green-900 font-semibold'>{eachItem.discount}% discount</p>
                                       </div>
-                                      <div className='mt-2 flex'>
+                                      <p className='block lg:hidden text-[15px] sm:text-[16px] lg:text-[18px] text-green-900 font-semibold'>{eachItem.discount}% discount</p>
+                                      <div className='mt-2 flex text-[15px] sm:text-[16px] lg:text-[18px]'>
                                           <p className='font-semibold text-gray-600 mr-3'>Ratings: </p>
                                           {ratings.map(eachItem => (<img className='h-[20px]' src={RatingStar} alt="star" />))}
                                       </div>
-                                      <div className='flex justify-between mt-3'>
+                                      <div className='flex justify-between mt-3 text-[15px] sm:text-[16px] lg:text-[18px]'>
                                           <div className='flex'>
-                                              <img className='h-[20px]' src={FreeDeliveryIcon} alt="free delivery" />
+                                              <img className='h-[18px] lg:h-[20px]' src={FreeDeliveryIcon} alt="free delivery" />
                                               <p className='font-semibold text-gray-500 ml-2'>Free Delivery</p>
                                           </div>
                                       </div>
                                   </div>
-                                  <div className='flex justify-end mt-3'>
+                                  <div className='flex flex-col lg:flex-row sm:justify-end mt-3'>
                                       <a href='#addProduct-form'>
-                                          <button onClick={() => clickEditProductBtn(eachItem)} className='w-[150px] bg-gradient-to-t from-cyan-800 to-sky-500 focus:from-indigo-800 focus:to-violet-900 font-semibold p-2 rounded-[5px] text-white'>Edit Product</button>
+                                          <button onClick={() => clickEditProductBtn(eachItem)} className='text-[13px] sm:text-[15px] lg:text-[17px] w-[100px] sm:w-[150px] bg-gradient-to-t from-cyan-800 to-sky-500 focus:from-indigo-800 focus:to-violet-900 font-semibold p-2 rounded-[5px] text-white'>Edit Product</button>
                                       </a>
-                                      <button onClick={() => deleteProduct(eachItem.productId)} className='ml-2 w-[150px] bg-gradient-to-r from-red-800 to-red-400 focus:from-indigo-800 focus:to-violet-900 font-semibold p-2 rounded-[5px] text-white'>Delete Product</button>
+                                      <button onClick={() => deleteProduct(eachItem.productId)} className='text-[13px] sm:text-[15px] lg:text-[17px] mt-2 lg:mt-0 lg:ml-2  w-[110px] sm:w-[150px] bg-gradient-to-r from-red-800 to-red-400 focus:from-indigo-800 focus:to-violet-900 font-semibold p-2 rounded-[5px] text-white'>Delete Product</button>
                                   </div>
 
                               </li>

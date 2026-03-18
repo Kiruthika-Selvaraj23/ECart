@@ -9,7 +9,7 @@ import CashonDelivery from "../../assets/CashonDelivery.png"
 export default function UserFooter() {
   return (
       <footer className='bg-blue-950'>
-          <div className='mx-10 sm:mx-20 p-3 text-white sm:flex sm:justify-between'>
+          <div className='mx-10 sm:mx-20 pb-5 p-3 text-white sm:flex sm:justify-between'>
               <div>
                   <h2 className='font-semibold italic text-[15px] sm:text-[17px] lg:text-[20px] sm:mb-3'>Quick Links</h2>
                   <p className='text-[13px] sm:text-[15px] text-slate-300'>Home</p>

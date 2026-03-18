@@ -39,16 +39,16 @@ export default function UserOrderPage() {
         <ul className='flex flex-col my-7'>
             {
                 orderDatas.map((eachItem) => (
-                    <li className='bg-white min-w-[90%] lg:w-[70%] m-3 rounded-md shadow-2xl shadow-slate-600'>
+                    <li className='bg-white w-[90%] lg:w-[70%] m-3 rounded-md shadow-2xl shadow-slate-600'>
                         <div className='flex justify-between p-3'>
-                            <div className='flex min-w-[40%]'>
-                                <img className='h-[80px] lg:h-[100px] min-w-[30%]' src={`${url}/${eachItem.product.image.filePath}`} alt={eachItem.product.name} />
-                                <div className='ml-5'>
-                                    <p className='text-[14px] lg:text-[18px] font-semibold text-gray-500'>{eachItem.product.brandName}</p>
-                                    <h1 className='font-bold text-[16px] lg:text-[20px] text-blue-950 mt-1'>{eachItem.product.name}</h1>
+                            <div className='sm:flex min-w-[40%]'>
+                                <img className='h-[70px] sm:h-[80px] lg:h-[100px] min-w-[25%] sm:min-w-[30%]' src={`${url}/${eachItem.product.image.filePath}`} alt={eachItem.product.name} />
+                                <div className='sm:ml-5'>
+                                    <p className='text-[12px] sm:text-[14px] lg:text-[18px] font-semibold text-gray-500'>{eachItem.product.brandName}</p>
+                                    <h1 className='font-bold text-[14px] sm:text-[16px] lg:text-[20px] text-blue-950 mt-1'>{eachItem.product.name}</h1>
                                 </div>
                             </div>
-                            <div className='flex flex-col justify-center text-[15px] lg:text-[18px]'>
+                            <div className='flex flex-col justify-center text-[13px] sm:text-[15px] lg:text-[18px]'>
                                 <p className='text-green-800 font-semibold '>₹{eachItem.totalPrice}</p>
                                 <p className='text-gray-800 font-semibold'>Quantity: {eachItem.totalQuantity}</p>
                             </div>

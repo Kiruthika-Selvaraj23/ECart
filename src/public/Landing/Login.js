@@ -72,14 +72,14 @@ export default function Login() {
                 <div className='w-[80%] sm:w-[58%]'>
                     <h1 className='text-[20px] sm:text-[25px] lg:text-[30px] text-blue-700 italic font-semibold'>Login</h1>
                     <form onSubmit={(event) => submitLoginForm(event)} className='flex flex-col mb-7'>
-                        <label className='text-gray-600 text-[15px] font-semibold my-3' htmlFor='email'>Email Id:</label>
+                        <label className='text-gray-600 text-[15px] lg:text-[17px] font-semibold my-3' htmlFor='email'>Email Id:</label>
                         <input onChange={(event) => setLoginMail(event.target.value)} value={loginMail} type="email" id='email' className='border-t-0 border-b-2 border-l-0 border-r-0 outline-none' />
                         <p className='text-red-900 font-semibold'>{loginEmailErr}</p>
-                        <label className='text-gray-600 text-[15px] font-semibold my-3' htmlFor='email'>Password:</label>
+                        <label className='text-gray-600 text-[15px] lg:text-[17px] font-semibold my-3' htmlFor='email'>Password:</label>
                         <input onChange={(event) => setLoginPassword(event.target.value)} value={loginPassword} type="password" id='pass' className='border-t-0 border-b-2 border-l-0 border-r-0 outline-none' />
                         <p className='text-red-900 font-semibold'>{loginPwdErr}</p>
                         <div>
-                            <button type='submit' className='text-[13px] sm:text-[15px] bg-gradient-to-t from-blue-950 to-blue-500 w-[70px] sm:w-[100px] font-semibold p-2 rounded-[5px] text-white mt-5'>Login</button>
+                            <button type='submit' className='text-[13px] sm:text-[15px] lg:text-[17px] bg-gradient-to-t from-blue-950 to-blue-500 w-[70px] sm:w-[100px] font-semibold p-2 rounded-[5px] text-white mt-5'>Login</button>
                         </div>
                     </form>
                </div>
