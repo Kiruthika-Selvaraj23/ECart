@@ -13,8 +13,8 @@ export default function HomePage() {
   return (
     <>
       <UserHeader/>
-      <div className='bg-gradient-to-tr from-blue-100 to-white min-h-[100vh] p-5'>
-        <div className='sm:flex sm:justify-between mx-10 sm:mx-16'>
+      <div className='bg-gradient-to-tr from-blue-100 to-white min-h-[100vh] p-3'>
+        <div className='sm:flex sm:justify-between mx-3 sm:mx-8 lg:mx-20 mt-[60px] sm:mt-[70px] lg:mt-[75px]'>
           <div className='sm:flex sm:flex-col sm:justify-center sm:items-center'>
             <h1 className='text-[25px] sm:text-[30px] lg:text-[40px] font-bold text-blue-900'>Welcome to <span className='text-blue-700'>eCART</span></h1>
             <p className='text-[15px] sm:text-[17px] lg:text-[20px] text-gray-700 my-3 font-semibold'>Discover Quality Products for Every Need</p>

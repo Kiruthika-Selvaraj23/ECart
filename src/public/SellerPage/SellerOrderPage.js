@@ -74,8 +74,8 @@ export default function SellerOrderPage() {
   return (
       <>
           <SellerHeader/>
-          <div className='bg-gradient-to-tr from-blue-100 to-white min-h-[100vh] p-5'>
-              <div className='mx-5 sm:mx-10 lg:mx-20 mt-[90px]'>
+          <div className='bg-gradient-to-tr from-blue-100 to-white min-h-[100vh] p-3'>
+              <div className=' mx-3 sm:mx-8 lg:mx-20 mt-[60px] sm:mt-[70px] lg:mt-[75px]'>
                   <div className='flex justify-between'>
                       <div className='flex flex-col justify-center'>
                           <h1 className='text-blue-900 text-[20px] sm:text-[25px] lg:text-[30px] font-bold italic'>Order Details</h1>

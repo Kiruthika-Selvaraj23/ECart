@@ -9,8 +9,8 @@ export default function ShopPage() {
   return (
       <>
         <UserHeader />
-      <div className='bg-gradient-to-tr from-blue-100 to-white min-h-[100vh] p-5'>
-              <div className='flex justify-between mx-4 mt-5'>
+      <div className='bg-gradient-to-tr from-blue-100 to-white min-h-[100vh] p-3'>
+        <div className='flex justify-between mx-3 sm:mx-8 lg:mx-20 mt-[60px] sm:mt-[70px] lg:mt-[75px]'>
                   <div className="hidden h-[400px] min-w-[55%] bg-cover bg-center sm:flex flex-col justify-center items-center" style={{ backgroundImage: `url(${ShopImage})` }}>
                       <h2 className='text-blue-800 italic font-semibold text-[18px] lg:text-[25px]'>Shop All the Products</h2>
                       <p className='text-gray-700 text-[9px] lg:text-[13px] xl:text-[15px] font-semibold'>Find Everything You Need, All in One Place</p>

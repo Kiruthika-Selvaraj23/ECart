@@ -5,16 +5,18 @@ import TwitterLogo from "../../assets/TwitterLogo.png"
 import GPay from "../../assets/GPay.png"
 import Paytm from "../../assets/Paytm.png"
 import CashonDelivery from "../../assets/CashonDelivery.png"
+import { useNavigate } from 'react-router'
 
 export default function UserFooter() {
+    const navigate = useNavigate()
   return (
       <footer className='bg-blue-950'>
-          <div className='mx-10 sm:mx-20 pb-5 p-3 text-white sm:flex sm:justify-between'>
+          <div className='mx-3 sm:mx-8 lg:mx-20 pb-5 p-3 text-white sm:flex sm:justify-between'>
               <div>
                   <h2 className='font-semibold italic text-[15px] sm:text-[17px] lg:text-[20px] sm:mb-3'>Quick Links</h2>
-                  <p className='text-[13px] sm:text-[15px] text-slate-300'>Home</p>
-                  <p className='text-[13px] sm:text-[15px] text-slate-300'>Shop</p>
-                  <p className='text-[13px] sm:text-[15px] text-slate-300'>Cart</p>
+                  <p onClick={() => navigate("/userHomePage")} className='text-[13px] sm:text-[15px] text-slate-300'>Home</p>
+                  <p onClick={() => navigate("/userShopPage")} className='text-[13px] sm:text-[15px] text-slate-300'>Shop</p>
+                  <p onClick={() => navigate("/cartPage")} className='text-[13px] sm:text-[15px] text-slate-300'>Cart</p>
               </div>
 
               <div>
@@ -26,17 +28,17 @@ export default function UserFooter() {
               <div className='flex flex-col'>
                   <h2 className='font-semibold italic text-[15px] sm:text-[17px] lg:text-[20px] sm:mb-5 mt-2 sm:mt-0'>Follow Us</h2>
                   <div className='flex sm:justify-between items-center'>
-                      <img className='h-[25px] lg:h-[30px]' src={FacebookLogo} alt="facebook" />
-                      <img className='h-[25px] lg:h-[30px] mx-2' src={TwitterLogo} alt="twitter" />
-                      <img className='h-[25px] lg:h-[30px]' src={InstagramLogo} alt="instagram" />
+                      <img className='h-[22px] lg:h-[30px]' src={FacebookLogo} alt="facebook" />
+                      <img className='h-[22px] lg:h-[30px] mx-2' src={TwitterLogo} alt="twitter" />
+                      <img className='h-[22px] lg:h-[30px]' src={InstagramLogo} alt="instagram" />
                   </div> 
               </div>
               <div>
                   <h2 className='font-semibold italic text-[15px] sm:text-[17px] lg:text-[20px] mt-2 sm:mt-0'>Payment Methods</h2>
                   <div className='flex sm:justify-between items-center'>
-                      <img className='h-[25px] lg:h-[30px]' src={GPay} alt="facebook" />
-                      <img className='h-[65px] lg:h-[70px] mx-2' src={Paytm} alt="twitter" />
-                      <img className='h-[35px] lg:h-[40px]' src={CashonDelivery} alt="instagram" />
+                      <img className='h-[20px] lg:h-[30px]' src={GPay} alt="facebook" />
+                      <img className='h-[20px] lg:h-[30px] mx-2' src={Paytm} alt="twitter" />
+                      <img className='h-[30px] lg:h-[40px]' src={CashonDelivery} alt="instagram" />
                   </div> 
               </div>
           </div>

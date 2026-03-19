@@ -4,16 +4,18 @@ import TwitterLogo from "../../assets/TwitterLogo.png"
 import GPay from "../../assets/GPay.png"
 import Paytm from "../../assets/Paytm.png"
 import CashonDelivery from "../../assets/CashonDelivery.png"
+import { useNavigate } from "react-router"
 
 export default function SellerFooter() {
+    const navigate = useNavigate()
     return (
         <footer className='bg-blue-950'>
-            <div className='mx-10 lg:mx-20 p-3 text-white flex flex-col sm:flex-row justify-between'>
+            <div className=' mx-3 sm:mx-8 lg:mx-20 p-3 text-white flex flex-col sm:flex-row justify-between'>
                 <div className="mb-2 sm:mb-0">
                     <h2 className='font-semibold italic text-[15px] sm:text-[17px] lg:text-[20px] mb-1 sm:mb-3'>Quick Links</h2>
-                    <p className='text-[13px] sm:text-[15px] text-slate-300'>Home</p>
-                    <p className='text-[13px] sm:text-[15px] text-slate-300'>Products</p>
-                    <p className='text-[13px] sm:text-[15px] text-slate-300'>Orders</p>
+                    <p onClick={() => navigate("/sellerHomePage")} className='text-[13px] sm:text-[15px] text-slate-300'>Home</p>
+                    <p onClick={() => navigate("/sellerProductsPage")} className='text-[13px] sm:text-[15px] text-slate-300'>Products</p>
+                    <p onClick={() => navigate("/userOrderPage")} className='text-[13px] sm:text-[15px] text-slate-300'>Orders</p>
                 </div>
 
                 <div className="mb-2 sm:mb-0">

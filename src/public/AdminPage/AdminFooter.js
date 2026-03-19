@@ -9,7 +9,7 @@ export default function AdminFooter() {
 
     return (
         <footer className='bg-blue-950'>
-            <div className='mx-5 sm:mx-10 lg:mx-20 pb-10 p-3 text-white sm:flex sm:justify-between'>
+            <div className='mx-3 sm:mx-8 lg:mx-20 pb-10 p-3 text-white sm:flex sm:justify-between'>
                 <div className="sm:max-w-[30%]">
                     <img className='h-[26px] sm:h-[30px] lg:h-[35px]' src={ECartLogo} alt="logo" />
                     <p className='text-[15px] text-slate-300 mt-2'>Manage your e-commerce platform effectiently with ECart. View reports, manage products, and track orders, seamlessly.</p>

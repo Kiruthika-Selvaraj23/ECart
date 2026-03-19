@@ -87,7 +87,7 @@ export default function ProductPage() {
     const ratings = [1,2,3,4]
 
   return (
-      <div className='mx-5 sm:mx-10 lg:mx-20 mt-10'>
+      <div className='mx-3 sm:mx-8 lg:mx-20 mt-10'>
           <h1 className='text-[20px] lg:text-[30px] font-semibold italic text-blue-800'>All Products</h1>
           <hr className="border-t border-0 border-gray-400 w-full my-3 sm:my-5" />
 

@@ -69,8 +69,8 @@ export default function UserOrderPage() {
   return (
       <>
           <UserHeader />
-          <div className='bg-gradient-to-tr from-blue-100 to-white min-h-[100vh] p-5'>
-              <div className='sm:mx-10 lg:mx-20'>
+          <div className='bg-gradient-to-tr from-blue-100 to-white min-h-[100vh] p-3'>
+              <div className='mx-3 sm:mx-8 lg:mx-20 mt-[60px] sm:mt-[70px] lg:mt-[75px]'>
                   
                   <div className='flex flex-col sm:flex-row justify-between'>
                       <div>

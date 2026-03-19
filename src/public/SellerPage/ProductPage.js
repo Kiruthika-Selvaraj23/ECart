@@ -333,8 +333,8 @@ export default function ProductPage() {
   return (
       <>
           <SellerHeader />
-          <div className='bg-gradient-to-tr from-blue-100 to-white min-h-[100vh] p-5'>
-              <div className='mt-[90px] mx-5 sm:mx-10 lg:mx-20'>
+          <div className='bg-gradient-to-tr from-blue-100 to-white min-h-[100vh] p-3'>
+              <div className=' mx-3 sm:mx-8 lg:mx-20 mt-[60px] sm:mt-[70px] lg:mt-[75px]'>
                   <div className='sm:flex sm:justify-between'>
                       <div>
                           <h1 className='text-[22px] sm:text-[25px] lg:text-[30px] font-bold text-blue-800'>Your Products</h1>

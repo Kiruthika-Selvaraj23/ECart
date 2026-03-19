@@ -59,8 +59,8 @@ export default function CustomerDatas() {
   return (
       <>
           <AdminHeader />
-          <div className='bg-gradient-to-tr from-blue-100 to-white min-h-[100vh] p-5'>
-              <div className='mt-[90px] mx-5 sm:mx-10 lg:mx-20'>
+          <div className='bg-gradient-to-tr from-blue-100 to-white min-h-[100vh] p-3'>
+              <div className='mx-3 sm:mx-8 lg:mx-20 mt-[60px] sm:mt-[70px] lg:mt-[75px]'>
                   <h2 className='text-blue-900 text-[20px] sm:text-[25px] lg:text-[30px] font-semibold'>Customer / User Datas</h2>
                   <hr className='border-t-[1px] border-gray-300 my-4' />
                   <ul className='flex flex-col'>

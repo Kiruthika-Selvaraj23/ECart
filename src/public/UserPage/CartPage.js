@@ -56,17 +56,17 @@ export default function CartPage() {
               
               {
                   cartProducts.length === 0 ? (
-                      <div className='flex flex-col justify-center items-center pt-10'>
+                      <div className='flex flex-col justify-center items-center mx-3 sm:mx-8 lg:mx-20 pt-[60px] sm:pt-[70px] lg:pt-[75px]'>
                           <h1 className='text-center text-[20px] sm:text-[25px] lg:text-[30px] font-semibold italic text-blue-900'>Your Cart is Empty!!</h1>
                           <div className='mt-4'>
                               <button onClick={() => navigate("/userShopPage")} className='text-[13px] sm:text-[15px] bg-gradient-to-t from-blue-950 to-sky-400 p-2 text-white font-semibold rounded-[5px]'>Continue Shopping</button>
                           </div>
                           <img className='h-[300px] sm:h-[400px] lg:h-[500px]' src={EmptyCart} alt="empty cart" />
                       </div>) : (
-                          <div>
-                            <div className='relative h-[400px] w-full'>
+                          <div className='pt-[60px] sm:pt-[70px] lg:pt-[75px]'>
+                              <div className='relative h-[400px] w-full'>
                                 <img className='h-full w-full object-cover' src={CartPageBanner} alt="Banner" />
-                                <div className='absolute inset-0 mx-10 lg:mx-20 flex flex-col justify-center mb-44 sm:mb-32'>
+                                  <div className='mx-3 sm:mx-8 lg:mx-20 absolute inset-0 flex flex-col justify-center mb-44 sm:mb-32'>
                                     <h1 className='text-white font-semibold text-[30px] lg:text-[40px] italic'>Shopping Cart</h1>
                                     <p className='text-gray-600 font-semibold text-[17px] lg:text-[23px] mt-1'>Rewiew Your Selection and Proceed to Checkout</p>
                                     <div className='mt-4'>
@@ -75,7 +75,7 @@ export default function CartPage() {
                                 </div>
                               </div>
                               
-                              <div className='mx-5 sm:mx-10 lg:mx-20 p-3'>
+                              <div className='mx-3 sm:mx-8 lg:mx-20 p-3'>
                                   <h1 className='text-[30px] italic text-gray-700 font-semibold'>My Cart</h1>
                                   <ul className='flex justify-between flex-wrap my-8'>
                                       {
