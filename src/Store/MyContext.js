@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import Seller from "../assets/Seller.jpg"
 import User from "../assets/User.jpg"
 
@@ -24,8 +24,30 @@ export default function MyContext(props) {
     const [showCompanyInput, setCompanyInput] = useState("user")
     const [role, setRole] = useState("user")
     const [cartProducts, setCartProducts] = useState([])
-
     const [userDetails, setUserDetails] = useState({})
+
+    useEffect(() => {
+        getUserDetails()
+    }, [])
+
+    const getUserDetails = async () => {
+        try {
+            const url = process.env.REACT_APP_URL
+            const options = {
+                method: "GET",
+                credentials: "include"
+            }
+            const response = await fetch(`${url}/me`, options)
+            const data = await response.json()
+            if (data.success) {
+                setUserDetails(data.user)
+            }
+        }
+        catch (err) {
+            alert("Trouble in getting user Details")
+        }
+    }
+
 
     const data = {
         showRegiserCard, setRegisterCard, showRegisterFrom, setRegisterForm, registrationCardDatas, setRegistrationCardDatas, showCompanyInput, setCompanyInput,

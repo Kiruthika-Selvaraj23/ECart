@@ -41,7 +41,7 @@ export default function Login() {
                 }
                 const fetchData = await fetch(`${url}/login`, options)
                 const data = await fetchData.json()
-                console.log(data)
+                
                 if (data.success) {
                     setUserDetails(data.UserData)
                     alert(data.message)
