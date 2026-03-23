@@ -12,10 +12,11 @@ export default function UserOrderPage() {
     
     useEffect(() => {
         getOrderDatas()
-    },[])
-
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
+    
     const url = process.env.REACT_APP_URL
-    const getOrderDatas = async() => {
+    const getOrderDatas = async () => {
         try {
             const options = {
                 method: "GET",
@@ -25,7 +26,7 @@ export default function UserOrderPage() {
             const data = await response.json()
             if (data.success) {
                 setOrderDatas(data.orderedProducts)
-            } 
+            }
             else {
                 alert(data.message)
             }
@@ -34,6 +35,8 @@ export default function UserOrderPage() {
             alert("Trouble in getting order details")
         }
     }
+
+
 
     const renderOrderedItems = () => (
         <ul className='flex flex-col my-7'>

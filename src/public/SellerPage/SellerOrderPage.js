@@ -7,11 +7,11 @@ import NoOrderImage from "../../assets/NoOrderImage.png"
 export default function SellerOrderPage() {
     const [orderDetails, setOrderDetails] = useState([])
 
+    const url = process.env.REACT_APP_URL
     useEffect(() => {
         getCompanyOrders()
-    },[])
-
-    const url = process.env.REACT_APP_URL
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[url])
     const getCompanyOrders = async () => {
         try {
             const options = {

@@ -7,10 +7,12 @@ export default function CustomerDatas() {
     const [customerDetails, setCustomerDetails] = useState([])
     const [sellerDetails, setSellerDetails] = useState([])
 
+
     useEffect(() => {
         getUserDatas()
-    },[])
-
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
+    
     const url = process.env.REACT_APP_URL
     const getUserDatas = async () => {
         try {
@@ -34,6 +36,7 @@ export default function CustomerDatas() {
             alert("Trouble in getting user details")
         }
     }
+
 
     const deleteUser = async (personId) => {
         try {

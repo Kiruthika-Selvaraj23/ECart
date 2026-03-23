@@ -19,6 +19,7 @@ export default function ProductDetailPage() {
     
     useEffect(() => {
         getProductDetails()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
      
     const getProductDetails = async () => {

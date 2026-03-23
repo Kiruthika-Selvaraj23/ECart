@@ -32,6 +32,7 @@ export default function ProductPage() {
 
     useEffect(() => {
         getCompanyProducts()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
 
     const url = process.env.REACT_APP_URL
