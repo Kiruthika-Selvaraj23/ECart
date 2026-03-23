@@ -1,4 +1,3 @@
-import React from 'react'
 import SummerCollections from "../../assets/SummerShopping.png"
 import TechGadgets from "../../assets/TechGadgets.png"
 import KitchenSets from "../../assets/KitchenSets.png"

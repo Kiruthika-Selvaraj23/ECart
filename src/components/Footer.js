@@ -1,4 +1,3 @@
-import React from 'react'
 import Shipping from "../assets/Shipping.png"
 import Deals from "../assets/Deals.png"
 import SecurePayment from "../assets/Secure.png"

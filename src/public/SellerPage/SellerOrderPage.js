@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import SellerHeader from './SellerHeader'
 import SellerFooter from './SellerFooter'
 import SellerOrderImage from "../../assets/SellerOrderImage.png"

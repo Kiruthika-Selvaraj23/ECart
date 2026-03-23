@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import { useContext, useState } from 'react'
 import RegisterImage from "../../assets/RegisterImage.jpg"
 import { DContext } from '../../Store/MyContext'
 

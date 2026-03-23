@@ -1,4 +1,3 @@
-import React from 'react'
 import "../../App.css"
 import UserHeader from './UserHeader'
 import Collections from "./Collections.js"

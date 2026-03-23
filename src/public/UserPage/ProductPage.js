@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import FreeDeliveryIcon from "../../assets/FreeDeliveryIcon.png"
 import RatingStar from "../../assets/RatingStar.png"
 import { DContext } from '../../Store/MyContext'

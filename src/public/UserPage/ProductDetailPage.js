@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState } from 'react'
+import {useContext, useEffect, useState } from 'react'
 import UserHeader from './UserHeader'
 import UserFooter from './UserFooter'
 import { useParams } from 'react-router'

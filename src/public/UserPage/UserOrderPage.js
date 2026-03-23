@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import UserHeader from './UserHeader'
 import UserFooter from './UserFooter'
 import OrderPageGiftBox from "../../assets/OrderPageGiftBox.png"

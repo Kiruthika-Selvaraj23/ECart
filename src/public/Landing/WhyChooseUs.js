@@ -1,4 +1,3 @@
-import React from 'react'
 import WideProducts from "../../assets/WideProducts.png"
 import AffordablePrices from "../../assets/AffordablePrices.png"
 import FastDelivery from "../../assets/FastDelivery.png"

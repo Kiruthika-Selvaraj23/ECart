@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import AdminHeader from './AdminHeader'
 import AdminFooter from './AdminFooter'
 import FreeDeliveryIcon from "../../assets/FreeDeliveryIcon.png"

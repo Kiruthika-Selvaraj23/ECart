@@ -1,4 +1,3 @@
-import React from 'react'
 import SellerHeader from './SellerHeader'
 import SellerFooter from './SellerFooter'
 import HomeSellerImage from "../../assets/HomeSellerImage.png"

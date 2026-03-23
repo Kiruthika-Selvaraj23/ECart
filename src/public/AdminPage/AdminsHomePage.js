@@ -1,4 +1,3 @@
-import React from 'react'
 import AdminHeader from './AdminHeader'
 import AdminFooter from './AdminFooter'
 import AdminHomeImage from "../../assets/AdminHomeImage.jpeg"

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import SellerHeader from './SellerHeader'
 import SellerFooter from './SellerFooter'
 import { DContext } from '../../Store/MyContext'

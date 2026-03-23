@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import ECartLogo from "../../assets/ECartLogo.png"
 import { useNavigate } from 'react-router'
 import "../../index.css"

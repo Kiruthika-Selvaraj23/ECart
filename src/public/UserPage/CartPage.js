@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import { useContext, useState } from 'react'
 import UserHeader from './UserHeader'
 import UserFooter from './UserFooter'
 import CartPageBanner from "../../assets/CartPageBgImage.jpg"

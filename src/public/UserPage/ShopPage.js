@@ -1,4 +1,3 @@
-import React from 'react'
 import UserHeader from './UserHeader'
 import UserFooter from './UserFooter'
 import ShopImage from "../../assets/ShopImage.png"
