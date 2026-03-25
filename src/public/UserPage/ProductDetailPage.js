@@ -28,7 +28,7 @@ export default function ProductDetailPage() {
                 method: "GET",
                 credentials: "include"
             }
-            const response = await fetch(`${url}/getProductDetails/${id}`, options)
+            const response = await fetch(`${url}/api/getProductDetails/${id}`, options)
             const data = await response.json()
             if (data.success) {
                 setProductDetails(data.detailedProduct)

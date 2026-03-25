@@ -30,7 +30,7 @@ export default function AdminHeader() {
             credentials: "include",
         }
         const url = process.env.REACT_APP_URL
-        const response = await fetch(`${url}/logout`, options)
+        const response = await fetch(`${url}/api/logout`, options)
 
         const data = await response.json()
         if (data.success) {

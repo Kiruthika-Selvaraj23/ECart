@@ -18,7 +18,7 @@ export default function SellerOrderPage() {
                 method: "GET",
                 credentials: "include"
             }
-            const response = await fetch(`${url}/getParticularCompanyOrders`, options)
+            const response = await fetch(`${url}/api/getParticularCompanyOrders`, options)
             const data = await response.json()
             if (data.success) {
                 setOrderDetails(data.orderDetails)

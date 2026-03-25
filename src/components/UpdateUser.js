@@ -52,7 +52,7 @@ export default function UpdateUser() {
                     },
                     body: JSON.stringify({ userName: name, pwd: password, emailId: email, mobileNo: contactNo })
                 }
-                const fetchData = await fetch(`${url}/updateUser/${userDetails.personId}`, options)
+                const fetchData = await fetch(`${url}/api/updateUser/${userDetails.personId}`, options)
                 const data = await fetchData.json()
                 if (data.success) {
                     alert(data.message)

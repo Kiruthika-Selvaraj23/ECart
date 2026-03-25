@@ -32,7 +32,7 @@ export default function CartPage() {
                 },
                 body: JSON.stringify({ productId: productId, productQuantity: quantity})
             }
-            const response = await fetch(`${url}/order`, options)
+            const response = await fetch(`${url}/api/order`, options)
             const data = await response.json()
             if (data.success) {
                 setOrderStatus(data.message)

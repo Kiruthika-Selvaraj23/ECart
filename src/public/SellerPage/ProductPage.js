@@ -42,7 +42,7 @@ export default function ProductPage() {
                 method: "GET",
                 credentials: "include"
             }
-            const response = await fetch(`${url}/getCompanyProducts`, option)
+            const response = await fetch(`${url}/api/getCompanyProducts`, option)
             const data = await response.json()
             if (data.success) {
                 setCompanyProducts(data.companyProducts)
@@ -130,7 +130,7 @@ export default function ProductPage() {
                     credentials: "include",
                     body: formData
                 }
-                const response = await fetch(`${url}/product`, options)
+                const response = await fetch(`${url}/api/product`, options)
                 const data = await response.json()
                 if (data.success) {
                     alert("Product posted successfully")
@@ -171,7 +171,7 @@ export default function ProductPage() {
                 credentials: "include",
                 body: formData
             }
-            const response = await fetch(`${url}/updateProduct/${editProductId}`, options)
+            const response = await fetch(`${url}/api/updateProduct/${editProductId}`, options)
             const data = await response.json()
             if (data.success) {
                 alert("Product updated successfully")
@@ -199,7 +199,7 @@ export default function ProductPage() {
                 method: "DELETE",
                 credentials: "include"
             }
-            const response = await fetch(`${url}/deleteProduct/${productId}`, options)
+            const response = await fetch(`${url}/api/deleteProduct/${productId}`, options)
             const data = await response.json()
             if (data.success) {
                 alert(data.message)

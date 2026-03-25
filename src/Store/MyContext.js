@@ -37,7 +37,7 @@ export default function MyContext(props) {
                 method: "GET",
                 credentials: "include"
             }
-            const response = await fetch(`${url}/me`, options)
+            const response = await fetch(`${url}/api/me`, options)
             const data = await response.json()
             if (data.success) {
                 setUserDetails(data.user)

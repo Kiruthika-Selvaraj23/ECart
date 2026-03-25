@@ -44,7 +44,7 @@ export default function AdminProductsPage() {
                     method: "GET",
                     credentials: "include"
                 }
-                const response = await fetch(`${url}/getProducts`, options)
+                const response = await fetch(`${url}/api/getProducts`, options)
                 const data = await response.json()
                 if (data.success) {
                     setProductDatas(data.productDetails)
@@ -74,7 +74,7 @@ export default function AdminProductsPage() {
                 credentials: "include",
                 body: formData
             }
-            const response = await fetch(`${url}/updateProduct/${editProductId}`, options)
+            const response = await fetch(`${url}/api/updateProduct/${editProductId}`, options)
             const data = await response.json()
             if (data.success) {
                 alert("Product updated successfully")
@@ -137,7 +137,7 @@ export default function AdminProductsPage() {
                 method: "DELETE",
                 credentials: "include"
             }
-            const response = await fetch(`${url}/deleteProduct/${productId}`, options)
+            const response = await fetch(`${url}/api/deleteProduct/${productId}`, options)
             const data = await response.json()
             if (data.success) {
                 alert(data.message)

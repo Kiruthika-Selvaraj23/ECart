@@ -84,7 +84,7 @@ export default function Register() {
                     },
                     body: JSON.stringify(body)
                 }
-                const fetchData = await fetch(`${url}/enroll`, options)
+                const fetchData = await fetch(`${url}/api/enroll`, options)
                 const data = await fetchData.json()
                 if (data.success) {
                     alert(data.message)

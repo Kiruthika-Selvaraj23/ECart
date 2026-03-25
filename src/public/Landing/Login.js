@@ -9,8 +9,8 @@ export default function Login() {
     const [loginEmailErr, setLoginEmailErr] = useState("")
     const [loginPwdErr, setLoginPwdErr] = useState("")
 
-    const navigate = useNavigate() 
-    const { setUserDetails} = useContext(DContext)
+    const navigate = useNavigate()
+    const { setUserDetails } = useContext(DContext)
 
     const submitLoginForm = async (event) => {
         event.preventDefault()
@@ -46,9 +46,11 @@ export default function Login() {
                     },
                     body: JSON.stringify({ userMailId: loginMail, pwd: loginPassword })
                 }
-                const fetchData = await fetch(`${url}/login`, options)
+                const fetchData = await fetch(`${url}/api/login`, options)
+                console.log("Fetch", fetchData)
                 const data = await fetchData.json()
-                
+                console.log("Datas", data)
+
                 if (data.success) {
                     console.log("It is api121   ")
                     setUserDetails(data.UserData)
@@ -91,7 +93,7 @@ export default function Login() {
                             <button type='submit' className='text-[13px] sm:text-[15px] lg:text-[17px] bg-gradient-to-t from-blue-950 to-blue-500 w-[70px] sm:w-[100px] font-semibold p-2 rounded-[5px] text-white mt-5'>Login</button>
                         </div>
                     </form>
-               </div>
+                </div>
             </div>
         </div>
     )

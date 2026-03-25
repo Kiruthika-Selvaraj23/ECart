@@ -20,7 +20,7 @@ export default function CustomerDatas() {
                 method: "GET",
                 credentials: "include"
             }
-            const response = await fetch(`${url}/getUsers`, options)
+            const response = await fetch(`${url}/api/getUsers`, options)
             const data = await response.json()
             if (data.success) {
                 const filterCustomerDatas = data.userDetails.filter(eachUser => eachUser.role === "user")
@@ -44,7 +44,7 @@ export default function CustomerDatas() {
                 method: "DELETE",
                 credentials: "include"
             }
-            const response = await fetch(`${url}/deleteUser/${personId}`, option)
+            const response = await fetch(`${url}/api/deleteUser/${personId}`, option)
             const data = await response.json()
             if (data.success) {
                 alert(data.message)

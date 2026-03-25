@@ -25,7 +25,7 @@ export default function ProductPage() {
                 method: "GET",
                 credentials: "include"
             }
-            const response = await fetch(`${url}/getProducts`, options)
+            const response = await fetch(`${url}/api/getProducts`, options)
             const data = await response.json()
             if (data.success) {
                 setProductDatas(data.productDetails)
@@ -69,7 +69,7 @@ export default function ProductPage() {
                 },
                 body: JSON.stringify({ productId: productId, productQuantity: "1" })
             }
-            const response = await fetch(`${url}/order`, options)
+            const response = await fetch(`${url}/api/order`, options)
             const data = await response.json()
             if (data.success) {
                 setOrderStatus(data.message)

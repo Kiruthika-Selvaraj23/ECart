@@ -22,7 +22,7 @@ export default function UserOrderPage() {
                 method: "GET",
                 credentials: "include"
             }
-            const response = await fetch(`${url}/getParticularUserOrder`, options)
+            const response = await fetch(`${url}/api/getParticularUserOrder`, options)
             const data = await response.json()
             if (data.success) {
                 setOrderDatas(data.orderedProducts)
