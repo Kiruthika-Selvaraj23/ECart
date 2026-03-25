@@ -22,36 +22,53 @@ export default function Register() {
         const url = process.env.REACT_APP_URL
         try {
             let isValid = true
+            const nameRej = /^[A-Za-z]*$/
+            const emailRej = /^[a-z0-9]\w*@gmail\.com$/
+            const mobileNoRej = /^[6-9]\d{9}$/
             if (name === "") {
                 setNameErr("*Enter Your Name")
+                isValid = false
+            } else if (!nameRej.test(name)) {
+                setNameErr("*Name must be character")
                 isValid = false
             } else {
                 setNameErr("")
             }
+
             if (password === "") {
                 setPwdErr("*Enter Your Password")
                 isValid = false
             } else {
                 setPwdErr("")
             }
+
             if (email === "") {
                 setEmailErr("*Enter Your Email Id")
+                isValid = false
+            } else if (!emailRej.test(email)) {
+                setEmailErr("*Enter valid Email")
                 isValid = false
             } else {
                 setEmailErr("")
             }
+
             if (contactNo === "") {
                 setContactNoErr("*Enter Your ContactNo")
+                isValid = false
+            } else if (!mobileNoRej.test(contactNo)) {
+                setContactNoErr("*Enter valid mobile number")
                 isValid = false
             } else {
                 setContactNoErr("")
             }
+
             if (role=== "seller" && companyName === "") {
                 setCompanyErr("*Enter Your Company Name")
                 isValid = false
             } else {
                 setCompanyErr("")
             }
+            
             
             if (isValid) {
                 let body = { userName: name, pwd: password, emailId: email, mobileNo: contactNo, role: role }

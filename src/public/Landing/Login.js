@@ -14,15 +14,21 @@ export default function Login() {
 
     const submitLoginForm = async (event) => {
         event.preventDefault()
+        console.log("It is process")
         const url = process.env.REACT_APP_URL
         try {
             let isValid = true
+            const emailRej = /^[a-z0-9]\w*@gmail\.com$/
             if (loginMail === "") {
                 setLoginEmailErr("*Email Id is Mandatory")
+                isValid = false
+            } else if (!emailRej.test(loginMail)) {
+                setLoginEmailErr("*Enter valid Email")
                 isValid = false
             } else {
                 setLoginEmailErr("")
             }
+
             if (loginPassword === "") {
                 setLoginPwdErr("*Password is Mandotary")
                 isValid = false
@@ -31,6 +37,7 @@ export default function Login() {
             }
 
             if (isValid) {
+                console.log("It is api")
                 const options = {
                     method: "POST",
                     credentials: "include",
@@ -43,6 +50,7 @@ export default function Login() {
                 const data = await fetchData.json()
                 
                 if (data.success) {
+                    console.log("It is api121   ")
                     setUserDetails(data.UserData)
                     alert(data.message)
                     setLoginMail("")

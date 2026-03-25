@@ -23,7 +23,7 @@ export default function Header() {
                 <img className="h-[30px] sm:h-[35px] lg:h-[40px]" src={ECartLogo} alt="logo" />
                 <div className='w-[35%] sm:w-[25%] lg:w-[10%] flex justify-between items-center lg:mr-4'>
                     <button onClick={() => clickRegisterBtn()} className='lg:mr-3 text-[13px] sm:text-[15px]  bg-white text-black rounded-[3px] p-2'>Register</button>
-                    <button onClick={() => clickLoginBtn()} className=' text-[13px] sm:text-[15px] bg-white text-black rounded-[3px] p-2'>Login</button>
+                    <button onClick={() => clickLoginBtn()} className='ml-1 text-[13px] sm:text-[15px] bg-white text-black rounded-[3px] p-2'>Login</button>
                 </div>
             </div>
         </header>
