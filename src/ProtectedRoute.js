@@ -1,11 +1,9 @@
-import { Navigate, useNavigate } from 'react-router'
+import {useNavigate } from 'react-router'
 
 export default function ProtectedRoute({ user, allowedRoles, children }) {
     const navigate = useNavigate()
     if (!user)
-        // return navigate("/")
-        return <Navigate to="/" replace />;
-
+        return navigate("/")
     if (!allowedRoles.includes(user.role)) {
         if (user.role === "user") {
             return navigate("/userHomePage")
